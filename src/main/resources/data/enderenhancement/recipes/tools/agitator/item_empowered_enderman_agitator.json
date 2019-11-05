@@ -7,13 +7,13 @@
 	],
 	"key": {
 		"b": {
-			"item": "enderenhancement:block_empowered_ender_block"
+			"item": "netherenhancement:block_empowered_ender_block"
 		},
 		"s": {
-			"item": "enderenhancement:item_empowered_ender_stick"
+			"item": "netherenhancement:item_empowered_ender_stick"
 		}
 	},
 	"result": {
-		"item": "enderenhancement:item_empowered_enderman_agitator"
+		"item": "netherenhancement:item_empowered_enderman_agitator"
 	}
 }

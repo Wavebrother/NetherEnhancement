@@ -7,13 +7,13 @@
 	],
 	"key": {
 		"e": {
-			"item": "enderenhancement:item_empowered_ender_pearl"
+			"item": "netherenhancement:item_empowered_ender_pearl"
 		},
 		"s": {
-			"item": "enderenhancement:item_empowered_ender_stick"
+			"item": "netherenhancement:item_empowered_ender_stick"
 		}
 	},
 	"result": {
-		"item": "enderenhancement:item_empowered_ender_shovel"
+		"item": "netherenhancement:item_empowered_ender_shovel"
 	}
 }

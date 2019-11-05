@@ -13,9 +13,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.14.4-1.0.2.0'
-group = 'wavebrother.enderenhancement' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'EnderEnhancement'
+version = '1.14.4-1.0.0.0'
+group = 'wavebrother.netherenhancement' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'NetherEnhancement'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -43,7 +43,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                enderenhancement {
+                NetherEnhancement {
                     source sourceSets.main
                 }
             }
@@ -59,7 +59,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                enderenhancement {
+                NetherEnhancement {
                     source sourceSets.main
                 }
             }
@@ -74,10 +74,10 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'enderenhancement', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'netherenhancement', '--all', '--output', file('src/generated/resources/')
 
             mods {
-                enderenhancement {
+                NetherEnhancement {
                     source sourceSets.main
                 }
             }
@@ -116,12 +116,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "enderenhancement",
-            "Specification-Vendor": "enderenhancementsareus",
+            "Specification-Title": "NetherEnhancement",
+            "Specification-Vendor": "Wavebrother",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"enderenhancementsareus",
+            "Implementation-Vendor" :"Wavebrother",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

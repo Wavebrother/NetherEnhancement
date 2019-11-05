@@ -9,11 +9,11 @@
     {
         "e":
         {
-            "item": "enderenhancement:item_dull_ender_pearl"
+            "item": "netherenhancement:item_dull_ender_pearl"
         }
     },
     "result":
     {
-        "item": "enderenhancement:item_dull_ender_boots"
+        "item": "netherenhancement:item_dull_ender_boots"
     }
 }

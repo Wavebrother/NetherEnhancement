@@ -7,13 +7,13 @@
 	],
 	"key": {
 		"e": {
-			"item": "enderenhancement:item_extreme_ender_pearl"
+			"item": "netherenhancement:item_extreme_ender_pearl"
 		},
 		"s": {
-			"item": "enderenhancement:item_extreme_ender_stick"
+			"item": "netherenhancement:item_extreme_ender_stick"
 		}
 	},
 	"result": {
-		"item": "enderenhancement:item_extreme_ender_pickaxe"
+		"item": "netherenhancement:item_extreme_ender_pickaxe"
 	}
 }

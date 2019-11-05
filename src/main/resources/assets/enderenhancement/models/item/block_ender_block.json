@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "enderenhancement:blocks/ender_block"
+        "all": "netherenhancement:blocks/ender_block"
     }
 }

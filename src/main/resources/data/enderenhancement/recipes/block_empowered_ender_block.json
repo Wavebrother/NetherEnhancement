@@ -6,10 +6,10 @@
 	],
 	"key": {
 		"e": {
-			"item": "enderenhancement:item_empowered_ender_pearl"
+			"item": "netherenhancement:item_empowered_ender_pearl"
 		}
 	},
 	"result": {
-		"item": "enderenhancement:block_empowered_ender_block"
+		"item": "netherenhancement:block_empowered_ender_block"
 	}
 }

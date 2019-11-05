@@ -6,11 +6,11 @@
 	],
 	"key": {
 		"e": {
-			"item": "enderenhancement:item_extreme_ender_pearl"
+			"item": "netherenhancement:item_extreme_ender_pearl"
 		}
 	},
 	"result": {
-		"item": "enderenhancement:item_extreme_ender_stick",
+		"item": "netherenhancement:item_extreme_ender_stick",
 		"count": 2
 	}
 }

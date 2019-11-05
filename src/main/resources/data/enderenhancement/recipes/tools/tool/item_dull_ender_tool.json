@@ -3,17 +3,17 @@
     "ingredients":
     [
         {
-            "item": "enderenhancement:item_dull_ender_pickaxe"
+            "item": "netherenhancement:item_dull_ender_pickaxe"
         },
         {
-            "item": "enderenhancement:item_dull_ender_axe"
+            "item": "netherenhancement:item_dull_ender_axe"
         },
         {
-            "item": "enderenhancement:item_dull_ender_shovel"
+            "item": "netherenhancement:item_dull_ender_shovel"
         }
     ],
     "result":
     {
-        "item": "enderenhancement:item_dull_ender_tool"
+        "item": "netherenhancement:item_dull_ender_tool"
     }
 }

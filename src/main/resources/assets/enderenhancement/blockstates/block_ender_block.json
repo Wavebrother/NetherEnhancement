@@ -2,7 +2,7 @@
 	"variants": {
 		"": [
 			{
-				"model": "enderenhancement:block/ender_block"
+				"model": "netherenhancement:block/ender_block"
 			}
 		]
 	}
