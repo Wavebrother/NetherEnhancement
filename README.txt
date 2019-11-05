@@ -1,1 +1,1 @@
-Check it out on curseforge https://www.curseforge.com/minecraft/mc-mods/ender-enhancement.
+Check it out on curseforge https://www.curseforge.com/minecraft/mc-mods/nether-enhancement.
