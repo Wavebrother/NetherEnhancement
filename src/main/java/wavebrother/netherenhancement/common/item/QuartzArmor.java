@@ -21,17 +21,17 @@ import wavebrother.netherenhancement.common.util.NetherTier;
 import wavebrother.netherenhancement.common.util.NetherTier.EnderArmorMaterial;
 
 @EventBusSubscriber(modid = Reference.MOD_ID)
-public class EnderArmor extends ArmorItem implements IEnderItem {
+public class QuartzArmor extends ArmorItem implements IQuartzItem {
 
 	public static final Item COOLDOWNITEM = new Item(new Item.Properties());
 
 	protected final Random rand = new Random();
 
 	static {
-		MinecraftForge.EVENT_BUS.register(EnderArmor.class);
+		MinecraftForge.EVENT_BUS.register(QuartzArmor.class);
 	}
 
-	public EnderArmor(NetherTier material, EquipmentSlotType slot, String name) {
+	public QuartzArmor(NetherTier material, EquipmentSlotType slot, String name) {
 		super(material.armorMaterial, slot, new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
 		this.tier = material;
@@ -56,15 +56,15 @@ public class EnderArmor extends ArmorItem implements IEnderItem {
 	private static boolean checkArmor(ItemStack item, ArrayList<ItemStack> enderArmor, PlayerEntity entity) {
 		EnderArmorMaterial material = NetherTier.OBSCURE.armorMaterial;
 		for (ItemStack armor : entity.getArmorInventoryList()) {
-			if (armor.getItem() instanceof EnderArmor)
+			if (armor.getItem() instanceof QuartzArmor)
 				enderArmor.add(armor);
 		}
 		if (enderArmor.size() == 0)
 			return false;
-		else if (entity.getCooldownTracker().hasCooldown((EnderArmor) enderArmor.get(0).getItem()))
+		else if (entity.getCooldownTracker().hasCooldown((QuartzArmor) enderArmor.get(0).getItem()))
 			return false;
-		if (((EnderArmor) enderArmor.get(0).getItem()).material instanceof EnderArmorMaterial)
-			material = (EnderArmorMaterial) ((EnderArmor) enderArmor.get(0).getItem()).material;
+		if (((QuartzArmor) enderArmor.get(0).getItem()).material instanceof EnderArmorMaterial)
+			material = (EnderArmorMaterial) ((QuartzArmor) enderArmor.get(0).getItem()).material;
 		if (item != null) {
 			if (enderArmor.get(0) != item)
 				return false;

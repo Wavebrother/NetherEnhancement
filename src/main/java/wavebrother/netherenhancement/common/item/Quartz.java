@@ -4,10 +4,10 @@ import net.minecraft.item.Item;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
-public class EnderStick extends Item implements IEnderItem {
+public class Quartz extends Item implements IQuartzItem {
 
-	public EnderStick(NetherTier tier, String name) {
-		super(new Properties().group(NetherEnhancement.CREATIVE_TAB));
+	public Quartz(NetherTier tier, String name) {
+		super(new Properties().maxStackSize(16).group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
 		this.tier = tier;
 		// TODO Auto-generated constructor stub

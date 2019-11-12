@@ -29,11 +29,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameters;
 import wavebrother.netherenhancement.NetherEnhancement;
-import wavebrother.netherenhancement.common.item.EndermanAgitator;
-import wavebrother.netherenhancement.common.item.ItemAccumulator;
-import wavebrother.netherenhancement.common.tiles.EnderPedestalTileEntity;
+import wavebrother.netherenhancement.common.item.PigmanAgitator;
+import wavebrother.netherenhancement.common.item.ItemVoid;
+import wavebrother.netherenhancement.common.tiles.QuartzPedestalTileEntity;
 
-public class EnderPedestal extends /* Container */Block {
+public class QuartzPedestal extends /* Container */Block {
 	public static final BooleanProperty HAS_AGITATOR = BooleanProperty.create("has_agitator");
 	public static final BooleanProperty HAS_ACCUMULATOR = BooleanProperty.create("has_accumulator");
 	protected static final VoxelShape SHAPE = VoxelShapes.or(
@@ -42,7 +42,7 @@ public class EnderPedestal extends /* Container */Block {
 
 	public final EnderPedestalItem blockItem;
 
-	public EnderPedestal(String name) {
+	public QuartzPedestal(String name) {
 		super(Block.Properties.from(Blocks.STONE));
 		setRegistryName(name);
 		this.setDefaultState(this.stateContainer.getBaseState().with(HAS_AGITATOR, Boolean.valueOf(false))
@@ -69,8 +69,8 @@ public class EnderPedestal extends /* Container */Block {
 			state = state.with(HAS_ACCUMULATOR, Boolean.valueOf(false));
 			worldIn.setBlockState(pos, state, 2);
 			return true;
-		} else if (player.getHeldItem(handIn).getItem() instanceof EndermanAgitator
-				|| player.getHeldItem(handIn).getItem() instanceof ItemAccumulator) {
+		} else if (player.getHeldItem(handIn).getItem() instanceof PigmanAgitator
+				|| player.getHeldItem(handIn).getItem() instanceof ItemVoid) {
 			return false;
 		} else if (!worldIn.isRemote) {
 			extractInventory(worldIn, player, pos);
@@ -82,12 +82,12 @@ public class EnderPedestal extends /* Container */Block {
 	public static void insertItem(IWorld worldIn, PlayerEntity player, BlockPos pos, BlockState state,
 			ItemStack itemStack) {
 		TileEntity tileentity = worldIn.getTileEntity(pos);
-		if (tileentity instanceof EnderPedestalTileEntity) {
-			((EnderPedestalTileEntity) tileentity).setPedestalItem(itemStack.copy(), false);
-			((EnderPedestalTileEntity) tileentity).setItemOwner(player);
-			if (itemStack.getItem() instanceof EndermanAgitator)
+		if (tileentity instanceof QuartzPedestalTileEntity) {
+			((QuartzPedestalTileEntity) tileentity).setPedestalItem(itemStack.copy(), false);
+			((QuartzPedestalTileEntity) tileentity).setItemOwner(player);
+			if (itemStack.getItem() instanceof PigmanAgitator)
 				worldIn.setBlockState(pos, state.with(HAS_AGITATOR, Boolean.valueOf(true)), 2);
-			else if (itemStack.getItem() instanceof ItemAccumulator)
+			else if (itemStack.getItem() instanceof ItemVoid)
 				worldIn.setBlockState(pos, state.with(HAS_ACCUMULATOR, Boolean.valueOf(true)), 2);
 		}
 	}
@@ -109,8 +109,8 @@ public class EnderPedestal extends /* Container */Block {
 
 	private static void extractInventory(World worldIn, PlayerEntity player, BlockPos pos) {
 		TileEntity tileentity = worldIn.getTileEntity(pos);
-		if (tileentity instanceof EnderPedestalTileEntity) {
-			EnderPedestalTileEntity enderPedestalTileEntity = (EnderPedestalTileEntity) tileentity;
+		if (tileentity instanceof QuartzPedestalTileEntity) {
+			QuartzPedestalTileEntity enderPedestalTileEntity = (QuartzPedestalTileEntity) tileentity;
 			for (int i = 0; i < enderPedestalTileEntity.getSizeInventory(); i++) {
 				if (!enderPedestalTileEntity.getStackInSlot(i).isEmpty()) {
 					ItemStack item = enderPedestalTileEntity.removeStackFromSlot(i);
@@ -122,8 +122,8 @@ public class EnderPedestal extends /* Container */Block {
 
 	private static void extract(World worldIn, PlayerEntity player, BlockPos pos) {
 		TileEntity tileentity = worldIn.getTileEntity(pos);
-		if (tileentity instanceof EnderPedestalTileEntity) {
-			EnderPedestalTileEntity enderPedestalTileEntity = (EnderPedestalTileEntity) tileentity;
+		if (tileentity instanceof QuartzPedestalTileEntity) {
+			QuartzPedestalTileEntity enderPedestalTileEntity = (QuartzPedestalTileEntity) tileentity;
 			ItemStack itemstack = enderPedestalTileEntity.getPedestalItem();
 			if (!itemstack.isEmpty()) {
 				enderPedestalTileEntity.clearPedestal();
@@ -151,8 +151,8 @@ public class EnderPedestal extends /* Container */Block {
 	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
 		@SuppressWarnings("deprecation")
 		List<ItemStack> drops = super.getDrops(state, builder);
-		if (builder.get(LootParameters.BLOCK_ENTITY) instanceof EnderPedestalTileEntity) {
-			EnderPedestalTileEntity te = (EnderPedestalTileEntity) builder.get(LootParameters.BLOCK_ENTITY);
+		if (builder.get(LootParameters.BLOCK_ENTITY) instanceof QuartzPedestalTileEntity) {
+			QuartzPedestalTileEntity te = (QuartzPedestalTileEntity) builder.get(LootParameters.BLOCK_ENTITY);
 			if (te.getPedestalItem() != ItemStack.EMPTY)
 				drops.add(te.getPedestalItem());
 			for (int i = 0; i < te.getSizeInventory(); i++) {
@@ -164,7 +164,7 @@ public class EnderPedestal extends /* Container */Block {
 	}
 
 	public TileEntity createNewTileEntity(IBlockReader worldIn) {
-		EnderPedestalTileEntity pedestal = new EnderPedestalTileEntity();
+		QuartzPedestalTileEntity pedestal = new QuartzPedestalTileEntity();
 		LogManager.getLogger().debug(worldIn.getClass());
 		// pedestal.init((World) worldIn);
 		return pedestal;
@@ -190,8 +190,8 @@ public class EnderPedestal extends /* Container */Block {
 	public class EnderPedestalItem extends BlockItem {
 
 		protected EnderPedestalItem() {
-			super(EnderPedestal.this, new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
-			setRegistryName(EnderPedestal.this.getRegistryName());
+			super(QuartzPedestal.this, new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
+			setRegistryName(QuartzPedestal.this.getRegistryName());
 		}
 	}
 }

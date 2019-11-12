@@ -10,11 +10,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import wavebrother.netherenhancement.NetherEnhancement;
-import wavebrother.netherenhancement.common.item.IEnderItem;
+import wavebrother.netherenhancement.common.item.IQuartzItem;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
 @EventBusSubscriber(bus = Bus.FORGE)
-public class EnderSword extends SwordItem implements IEnderItem {
+public class EnderSword extends SwordItem implements IQuartzItem {
 
 	private static final EnderToolsUtil tool = EnderToolsUtil.SWORD;
 

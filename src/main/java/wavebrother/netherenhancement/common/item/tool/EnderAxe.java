@@ -3,10 +3,10 @@ package wavebrother.netherenhancement.common.item.tool;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import wavebrother.netherenhancement.NetherEnhancement;
-import wavebrother.netherenhancement.common.item.IEnderItem;
+import wavebrother.netherenhancement.common.item.IQuartzItem;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
-public class EnderAxe extends AxeItem implements IEnderItem {
+public class EnderAxe extends AxeItem implements IQuartzItem {
 
 	private static final EnderToolsUtil tool = EnderToolsUtil.AXE;
 

@@ -8,10 +8,10 @@ import net.minecraft.item.Item;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
-public class EnderBlock extends Block {
+public class QuartzBlock extends Block {
 
 	public final EnderBlockItem blockItem;
-	public EnderBlock(NetherTier tier, String name) {
+	public QuartzBlock(NetherTier tier, String name) {
 		super(Block.Properties.from(Blocks.IRON_BLOCK).sound(SoundType.ANVIL));
 		setRegistryName(name);
 		blockItem = new EnderBlockItem();
@@ -19,8 +19,8 @@ public class EnderBlock extends Block {
 	public class EnderBlockItem extends BlockItem{
 
 		protected EnderBlockItem() {
-			super(EnderBlock.this, new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
-			setRegistryName(EnderBlock.this.getRegistryName());
+			super(QuartzBlock.this, new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
+			setRegistryName(QuartzBlock.this.getRegistryName());
 			// TODO Auto-generated constructor stub
 		}
 		

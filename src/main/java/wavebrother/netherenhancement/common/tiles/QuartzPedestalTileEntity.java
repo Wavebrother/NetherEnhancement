@@ -23,48 +23,48 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import wavebrother.netherenhancement.common.blocks.EnderPedestal;
+import wavebrother.netherenhancement.common.blocks.QuartzPedestal;
 import wavebrother.netherenhancement.common.init.ModTileEntities;
-import wavebrother.netherenhancement.common.item.EndermanAgitator;
-import wavebrother.netherenhancement.common.item.ItemAccumulator;
-import wavebrother.netherenhancement.common.item.EndermanAgitator.DummyAgitator;
+import wavebrother.netherenhancement.common.item.PigmanAgitator;
+import wavebrother.netherenhancement.common.item.ItemVoid;
+import wavebrother.netherenhancement.common.item.PigmanAgitator.DummyAgitator;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
 @EventBusSubscriber(bus = Bus.FORGE)
-public class EnderPedestalTileEntity extends TileEntity implements ITickableTileEntity, IInventory {
+public class QuartzPedestalTileEntity extends TileEntity implements ITickableTileEntity, IInventory {
 	private NonNullList<ItemStack> inventory;
 	private ItemStack pedestalItem = ItemStack.EMPTY;
 	private PlayerEntity itemOwner;
 
-	protected EnderPedestalTileEntity(TileEntityType<?> typeIn) {
+	protected QuartzPedestalTileEntity(TileEntityType<?> typeIn) {
 		super(typeIn);
 
 		this.inventory = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	public EnderPedestalTileEntity() {
-		this(ModTileEntities.enderPedestal);
+	public QuartzPedestalTileEntity() {
+		this(ModTileEntities.quartzPedestal);
 	}
 
 	@Override
 	public void tick() {
-		if (!getWorld().isRemote && getPedestalItem().getItem() instanceof ItemAccumulator) {
-			((ItemAccumulator) getPedestalItem().getItem()).collectItems(getPedestalItem(), getWorld(), null, this);
+		if (!getWorld().isRemote && getPedestalItem().getItem() instanceof ItemVoid) {
+			((ItemVoid) getPedestalItem().getItem()).collectItems(getPedestalItem(), getWorld(), null, this);
 		}
-		if (!getWorld().isRemote && getPedestalItem().getItem() instanceof EndermanAgitator
+		if (!getWorld().isRemote && getPedestalItem().getItem() instanceof PigmanAgitator
 				&& !(getPedestalItem().hasTag()
-						&& getPedestalItem().getTag().getBoolean(EndermanAgitator.agitatorTag))) {
-			NetherTier tier = ((EndermanAgitator) getPedestalItem().getItem()).getEnderTier();
+						&& getPedestalItem().getTag().getBoolean(PigmanAgitator.agitatorTag))) {
+			NetherTier tier = ((PigmanAgitator) getPedestalItem().getItem()).getEnderTier();
 			List<PlayerEntity> players = getWorld().getEntitiesWithinAABB(PlayerEntity.class,
-					new AxisAlignedBB(pos.getX() - EndermanAgitator.getRange(tier),
-							pos.getY() - EndermanAgitator.getRange(tier), pos.getZ() - EndermanAgitator.getRange(tier),
-							pos.getX() + EndermanAgitator.getRange(tier), pos.getY() + EndermanAgitator.getRange(tier),
-							pos.getZ() + EndermanAgitator.getRange(tier)),
+					new AxisAlignedBB(pos.getX() - PigmanAgitator.getRange(tier),
+							pos.getY() - PigmanAgitator.getRange(tier), pos.getZ() - PigmanAgitator.getRange(tier),
+							pos.getX() + PigmanAgitator.getRange(tier), pos.getY() + PigmanAgitator.getRange(tier),
+							pos.getZ() + PigmanAgitator.getRange(tier)),
 					EntityPredicates.NOT_SPECTATING);
 			for (PlayerEntity player : players) {
 				player.getCooldownTracker().setCooldown(DummyAgitator.INSTANCE, 2);
-				player.getPersistentData().putString(EndermanAgitator.agitatorTag, tier.name());
+				player.getPersistentData().putString(PigmanAgitator.agitatorTag, tier.name());
 			}
 		}
 
@@ -114,8 +114,8 @@ public class EnderPedestalTileEntity extends TileEntity implements ITickableTile
 	@Override
 	public boolean isUsableByPlayer(PlayerEntity player) {
 		if (!hasWorld()) {
-		} else if (getWorld().getBlockState(getPos()).has(EnderPedestal.HAS_ACCUMULATOR)
-				|| getWorld().getBlockState(getPos()).has(EnderPedestal.HAS_AGITATOR))
+		} else if (getWorld().getBlockState(getPos()).has(QuartzPedestal.HAS_ACCUMULATOR)
+				|| getWorld().getBlockState(getPos()).has(QuartzPedestal.HAS_AGITATOR))
 			return false;
 		return player == itemOwner;
 	}

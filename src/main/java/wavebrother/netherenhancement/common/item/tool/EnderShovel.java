@@ -3,10 +3,10 @@ package wavebrother.netherenhancement.common.item.tool;
 import net.minecraft.item.Item;
 import net.minecraft.item.ShovelItem;
 import wavebrother.netherenhancement.NetherEnhancement;
-import wavebrother.netherenhancement.common.item.IEnderItem;
+import wavebrother.netherenhancement.common.item.IQuartzItem;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
-public class EnderShovel extends ShovelItem implements IEnderItem {
+public class EnderShovel extends ShovelItem implements IQuartzItem {
 
 	private static final EnderToolsUtil tool = EnderToolsUtil.SHOVEL;
 

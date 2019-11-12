@@ -27,17 +27,17 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import wavebrother.netherenhancement.Config;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.Reference;
-import wavebrother.netherenhancement.common.blocks.EnderPedestal;
+import wavebrother.netherenhancement.common.blocks.QuartzPedestal;
 import wavebrother.netherenhancement.common.init.ModBlocks;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
 @EventBusSubscriber(modid = Reference.MOD_ID)
-public class EndermanAgitator extends Item implements IEnderItem {
+public class PigmanAgitator extends Item implements IQuartzItem {
 
 	public static final String agitatorTag = "agitator";
 	public final NetherTier tier;
 
-	public EndermanAgitator(NetherTier tier, String name) {
+	public PigmanAgitator(NetherTier tier, String name) {
 		super(new Item.Properties().maxStackSize(1).group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
 		this.tier = tier;
@@ -71,10 +71,10 @@ public class EndermanAgitator extends Item implements IEnderItem {
 		World world = context.getWorld();
 		BlockPos blockpos = context.getPos();
 		BlockState blockstate = world.getBlockState(blockpos);
-		if (blockstate.getBlock() == ModBlocks.enderPedestal && !blockstate.get(EnderPedestal.HAS_AGITATOR)
-				&& !blockstate.get(EnderPedestal.HAS_ACCUMULATOR)) {
+		if (blockstate.getBlock() == ModBlocks.quartzPedestal && !blockstate.get(QuartzPedestal.HAS_AGITATOR)
+				&& !blockstate.get(QuartzPedestal.HAS_ACCUMULATOR)) {
 			ItemStack itemstack = context.getItem();
-			EnderPedestal.insertItem(world, context.getPlayer(), blockpos, blockstate, itemstack);
+			QuartzPedestal.insertItem(world, context.getPlayer(), blockpos, blockstate, itemstack);
 			world.playEvent((PlayerEntity) null, 1010, blockpos, Item.getIdFromItem(this));
 			if (!world.isRemote) {
 				itemstack.shrink(1);

@@ -6,26 +6,26 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import wavebrother.netherenhancement.Reference;
-import wavebrother.netherenhancement.common.blocks.EnderBlock;
-import wavebrother.netherenhancement.common.blocks.EnderPedestal;
+import wavebrother.netherenhancement.common.blocks.QuartzBlock;
+import wavebrother.netherenhancement.common.blocks.QuartzPedestal;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
 @EventBusSubscriber(bus = Bus.MOD, modid = Reference.MOD_ID)
 public class ModBlocks {
 	
-	public static EnderBlock dullEnderBlock;
-	public static EnderBlock enderBlock;
-	public static EnderBlock empoweredEnderBlock;
-	public static EnderBlock extremeEnderBlock;
+	public static QuartzBlock dullEnderBlock;
+	public static QuartzBlock enderBlock;
+	public static QuartzBlock empoweredEnderBlock;
+	public static QuartzBlock extremeEnderBlock;
 	
-	public static EnderPedestal enderPedestal;
+	public static QuartzPedestal quartzPedestal;
 
 	public static void init(){
-		dullEnderBlock = new EnderBlock(NetherTier.OBSCURE, Reference.Blocks.DULLENDERBLOCK.getRegistryName());
-		enderBlock = new EnderBlock(NetherTier.BASE, Reference.Blocks.ENDERBLOCK.getRegistryName());
-		empoweredEnderBlock = new EnderBlock(NetherTier.EMPOWERED, Reference.Blocks.EMPOWEREDENDERBLOCK.getRegistryName());
-		extremeEnderBlock = new EnderBlock(NetherTier.EXTREME, Reference.Blocks.EXTREMEENDERBLOCK.getRegistryName());
-		enderPedestal = new EnderPedestal("block_ender_pedestal");
+		dullEnderBlock = new QuartzBlock(NetherTier.OBSCURE, Reference.Blocks.DULLENDERBLOCK.getRegistryName());
+		enderBlock = new QuartzBlock(NetherTier.BASE, Reference.Blocks.ENDERBLOCK.getRegistryName());
+		empoweredEnderBlock = new QuartzBlock(NetherTier.EMPOWERED, Reference.Blocks.EMPOWEREDENDERBLOCK.getRegistryName());
+		extremeEnderBlock = new QuartzBlock(NetherTier.EXTREME, Reference.Blocks.EXTREMEENDERBLOCK.getRegistryName());
+		quartzPedestal = new QuartzPedestal("block_ender_pedestal");
 	}
 	
     @SubscribeEvent
@@ -38,7 +38,7 @@ public class ModBlocks {
                 enderBlock,
                 empoweredEnderBlock,
                 extremeEnderBlock,
-                enderPedestal
+                quartzPedestal
         );
     }
 

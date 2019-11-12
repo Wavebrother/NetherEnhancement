@@ -17,11 +17,11 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.Reference;
-import wavebrother.netherenhancement.common.item.IEnderItem;
+import wavebrother.netherenhancement.common.item.IQuartzItem;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
 @EventBusSubscriber(bus = Bus.MOD, modid = Reference.MOD_ID)
-public class EnderMultiTool extends ToolItem implements IEnderItem {
+public class EnderMultiTool extends ToolItem implements IQuartzItem {
 
 	private static final EnderToolsUtil tool = EnderToolsUtil.TOOL;
 

@@ -3,10 +3,10 @@ package wavebrother.netherenhancement.common.item.tool;
 import net.minecraft.item.Item;
 import net.minecraft.item.PickaxeItem;
 import wavebrother.netherenhancement.NetherEnhancement;
-import wavebrother.netherenhancement.common.item.IEnderItem;
+import wavebrother.netherenhancement.common.item.IQuartzItem;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
-public class EnderPickaxe extends PickaxeItem implements IEnderItem {
+public class EnderPickaxe extends PickaxeItem implements IQuartzItem {
 
 	private static final EnderToolsUtil tool = EnderToolsUtil.PICKAXE;
 

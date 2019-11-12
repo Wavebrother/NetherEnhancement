@@ -3,10 +3,10 @@ package wavebrother.netherenhancement.common.item.tool;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import wavebrother.netherenhancement.NetherEnhancement;
-import wavebrother.netherenhancement.common.item.IEnderItem;
+import wavebrother.netherenhancement.common.item.IQuartzItem;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
-public class EnderHoe extends HoeItem implements IEnderItem {
+public class EnderHoe extends HoeItem implements IQuartzItem {
 
 	private static final EnderToolsUtil tool = EnderToolsUtil.HOE;
 

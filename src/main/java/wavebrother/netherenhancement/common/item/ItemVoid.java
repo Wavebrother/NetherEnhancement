@@ -22,18 +22,18 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import wavebrother.netherenhancement.Config;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.Reference;
-import wavebrother.netherenhancement.common.blocks.EnderPedestal;
+import wavebrother.netherenhancement.common.blocks.QuartzPedestal;
 import wavebrother.netherenhancement.common.init.ModBlocks;
-import wavebrother.netherenhancement.common.tiles.EnderPedestalTileEntity;
+import wavebrother.netherenhancement.common.tiles.QuartzPedestalTileEntity;
 import wavebrother.netherenhancement.common.util.NetherTier;
 
 @EventBusSubscriber(modid = Reference.MOD_ID)
-public class ItemAccumulator extends Item implements IEnderItem {
+public class ItemVoid extends Item implements IQuartzItem {
 
 	public static final String accumulatorTag = "accumulator";
 	public final NetherTier tier;
 
-	public ItemAccumulator(NetherTier tier, String name) {
+	public ItemVoid(NetherTier tier, String name) {
 		super(new Item.Properties().maxStackSize(1).group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
 		this.tier = tier;
@@ -65,10 +65,10 @@ public class ItemAccumulator extends Item implements IEnderItem {
 		World world = context.getWorld();
 		BlockPos blockpos = context.getPos();
 		BlockState blockstate = world.getBlockState(blockpos);
-		if (blockstate.getBlock() == ModBlocks.enderPedestal && !blockstate.get(EnderPedestal.HAS_ACCUMULATOR)
-				&& !blockstate.get(EnderPedestal.HAS_AGITATOR)) {
+		if (blockstate.getBlock() == ModBlocks.quartzPedestal && !blockstate.get(QuartzPedestal.HAS_ACCUMULATOR)
+				&& !blockstate.get(QuartzPedestal.HAS_AGITATOR)) {
 			ItemStack itemstack = context.getItem();
-			EnderPedestal.insertItem(world, context.getPlayer(), blockpos, blockstate, itemstack);
+			QuartzPedestal.insertItem(world, context.getPlayer(), blockpos, blockstate, itemstack);
 			world.playEvent((PlayerEntity) null, 1010, blockpos, Item.getIdFromItem(this));
 			if (!world.isRemote) {
 				itemstack.shrink(1);
@@ -97,7 +97,7 @@ public class ItemAccumulator extends Item implements IEnderItem {
 		return Config.ACCUMULATOR_RANGE.get() * Config.ENDER_TIER_MULTIPLIER.get(tier).get();
 	}
 
-	public void collectItems(ItemStack stack, World worldIn, PlayerEntity playerIn, EnderPedestalTileEntity pedestal) {
+	public void collectItems(ItemStack stack, World worldIn, PlayerEntity playerIn, QuartzPedestalTileEntity pedestal) {
 		if (stack.hasTag() && stack.getTag().getBoolean(accumulatorTag)) {
 			List<ItemEntity> items;
 			BlockPos pos;
