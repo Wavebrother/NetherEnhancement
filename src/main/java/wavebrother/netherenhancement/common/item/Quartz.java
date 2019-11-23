@@ -16,7 +16,7 @@ public class Quartz extends Item implements IQuartzItem {
 	private final QuartzTier tier;
 
 	@Override
-	public QuartzTier getEnderTier() {
+	public QuartzTier getQuartzTier() {
 		return tier;
 	}
 

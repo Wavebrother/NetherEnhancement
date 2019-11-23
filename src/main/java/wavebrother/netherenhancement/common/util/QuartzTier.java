@@ -13,12 +13,12 @@ import wavebrother.netherenhancement.common.init.ModItems;
 
 public enum QuartzTier {
 	OBSCURE, BASE, EMPOWERED, EXTREME;
-	public final EnderToolTier toolTier;
-	public final EnderArmorMaterial armorMaterial;
+	public final QuartzToolTier toolTier;
+	public final QuartzArmorMaterial armorMaterial;
 
 	QuartzTier() {
-		toolTier = new EnderToolTier();
-		armorMaterial = new EnderArmorMaterial();
+		toolTier = new QuartzToolTier();
+		armorMaterial = new QuartzArmorMaterial();
 	}
 
 	@Override
@@ -59,9 +59,9 @@ public enum QuartzTier {
 		}
 	}
 
-	public class EnderToolTier implements IItemTier {
+	public class QuartzToolTier implements IItemTier {
 
-		protected EnderToolTier() {
+		protected QuartzToolTier() {
 
 		}
 
@@ -142,7 +142,7 @@ public enum QuartzTier {
 		}
 	}
 
-	public class EnderArmorMaterial implements IArmorMaterial {
+	public class QuartzArmorMaterial implements IArmorMaterial {
 //		DULL(, , 8, , 0.0F, () -> {
 //			return Ingredient.fromItems(Items.LEATHER);
 //		}), ENDER(, , , 16, , 0.0F, () -> {
@@ -155,7 +155,7 @@ public enum QuartzTier {
 //			return Ingredient.fromItems(Items.DIAMOND);
 //		});
 
-		protected EnderArmorMaterial() {
+		protected QuartzArmorMaterial() {
 			DEFAULT_WATER_TP_MIN = DEFAULT_WATER_TP_MINS[getTier().ordinal()];
 			DEFAULT_ATTACK_TP_MIN = DEFAULT_ATTACK_TP_MINS[getTier().ordinal()];
 
@@ -243,17 +243,16 @@ public enum QuartzTier {
 		}
 
 		public String getName() {
+			StringBuilder sb = new StringBuilder();
+			sb.append(Reference.MOD_ID + ":");
 			switch (QuartzTier.this) {
-			case OBSCURE:
-				return Reference.MOD_ID + ":dull_ender";
 			case BASE:
-				return Reference.MOD_ID + ":ender";
-			case EMPOWERED:
-				return Reference.MOD_ID + ":empowered_ender";
-			case EXTREME:
-				return Reference.MOD_ID + ":extreme_ender";
+				break;
+			default:
+				sb.append(this.toString().toLowerCase() + "_");
 			}
-			return "";
+			sb.append("quartz");
+			return sb.toString();
 		}
 
 		public float getToughness() {

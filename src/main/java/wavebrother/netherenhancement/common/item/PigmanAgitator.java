@@ -4,7 +4,7 @@ import java.util.List;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.monster.EndermanEntity;
+import net.minecraft.entity.monster.ZombiePigmanEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,6 +12,7 @@ import net.minecraft.item.ItemUseContext;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityPredicates;
 import net.minecraft.util.Hand;
@@ -44,7 +45,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 	}
 
 	@Override
-	public QuartzTier getEnderTier() {
+	public QuartzTier getQuartzTier() {
 		return tier;
 	}
 
@@ -108,49 +109,43 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 		if (entityIn instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity) entityIn;
 			if (stack.hasTag() && stack.getTag().getBoolean(agitatorTag)) {
-				List<EndermanEntity> endermen = worldIn.getEntitiesWithinAABB(EndermanEntity.class,
-						new AxisAlignedBB(entityIn.posX - getRange(getEnderTier()),
-								entityIn.posY - getRange(getEnderTier()), entityIn.posZ - getRange(getEnderTier()),
-								entityIn.posX + getRange(getEnderTier()), entityIn.posY + getRange(getEnderTier()),
-								entityIn.posZ + getRange(getEnderTier())),
+				List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
+						new AxisAlignedBB(entityIn.posX - getRange(getQuartzTier()),
+								entityIn.posY - getRange(getQuartzTier()), entityIn.posZ - getRange(getQuartzTier()),
+								entityIn.posX + getRange(getQuartzTier()), entityIn.posY + getRange(getQuartzTier()),
+								entityIn.posZ + getRange(getQuartzTier())),
 						EntityPredicates.NOT_SPECTATING);
-//				player.removeTag(agitatorTag);
-				for (EndermanEntity enderman : endermen) {
-//					if (!enderman.getTags().contains(agitateTag)) {
-//						enderman.addTag(agitateTag);
-					if (!(enderman.getAttackTarget() instanceof PlayerEntity
-							&& enderman.getDistance(enderman.getAttackTarget()) < enderman.getDistance(player)))
-						enderman.setAttackTarget(player);
-//					}
+				for (ZombiePigmanEntity pigman : pigmen) {
+					pigman.attackEntityFrom(DamageSource.GENERIC, 0);
 				}
 			} else {
 				player.getCooldownTracker().setCooldown(DummyAgitator.INSTANCE, 2);
-				player.getPersistentData().putString(agitatorTag, getEnderTier().name());
+				player.getPersistentData().putString(agitatorTag, getQuartzTier().name());
 			}
 		}
 	}
 
 	@SubscribeEvent
-	public static void onEnderHit(LivingAttackEvent event) {
+	public static void onQuartzHit(LivingAttackEvent event) {
 		if (event.getSource() instanceof EntityDamageSource
-				&& ((EntityDamageSource) event.getSource()).getTrueSource() instanceof EndermanEntity
+				&& ((EntityDamageSource) event.getSource()).getTrueSource() instanceof ZombiePigmanEntity
 				&& event.getEntityLiving() instanceof PlayerEntity) {
 			Entity attacker = ((EntityDamageSource) event.getSource()).getTrueSource();
 			PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 			if (player.getCooldownTracker().hasCooldown(DummyAgitator.INSTANCE)) {
 				QuartzTier tier = QuartzTier.valueOf(player.getPersistentData().getString(agitatorTag));
-				List<EndermanEntity> endermen = attacker.world.getEntitiesWithinAABB(EndermanEntity.class,
+				List<ZombiePigmanEntity> endermen = attacker.world.getEntitiesWithinAABB(ZombiePigmanEntity.class,
 						new AxisAlignedBB(attacker.posX - getRange(tier), attacker.posY - getRange(tier),
 								attacker.posZ - getRange(tier), attacker.posX + getRange(tier),
 								attacker.posY + getRange(tier), attacker.posZ + getRange(tier)),
 						EntityPredicates.NOT_SPECTATING);
-				for (EndermanEntity enderman : endermen) {
-					if (enderman.getAttackTarget() instanceof PlayerEntity) {
-						if (enderman.getAttackingEntity() instanceof PlayerEntity) {
-							enderman.getCombatTracker().reset();
+				for (ZombiePigmanEntity pigman : endermen) {
+					if (pigman.getAttackTarget() instanceof PlayerEntity) {
+						if (pigman.getAttackingEntity() instanceof PlayerEntity) {
+							pigman.getCombatTracker().reset();
 						}
-						enderman.setRevengeTarget(null);
-						enderman.setAttackTarget(null);
+						pigman.setRevengeTarget(null);
+						pigman.setAttackTarget(null);
 					}
 				}
 				event.setCanceled(true);
@@ -159,11 +154,11 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 	}
 
 	@SubscribeEvent
-	public static void onEnderSetAttack(LivingSetAttackTargetEvent event) {
-		if (event.getEntityLiving() instanceof EndermanEntity && event.getTarget() instanceof PlayerEntity) {
+	public static void onQuartzSetAttack(LivingSetAttackTargetEvent event) {
+		if (event.getEntityLiving() instanceof ZombiePigmanEntity && event.getTarget() instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity) event.getTarget();
 			if (player.getCooldownTracker().hasCooldown(DummyAgitator.INSTANCE)) {
-				((EndermanEntity) event.getEntityLiving()).setAttackTarget(null);
+				((ZombiePigmanEntity) event.getEntityLiving()).setAttackTarget(null);
 			}
 		}
 	}

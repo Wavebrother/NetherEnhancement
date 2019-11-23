@@ -1,17 +1,17 @@
 package wavebrother.netherenhancement.common.item.tool;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ShovelItem;
+import net.minecraft.item.PickaxeItem;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.common.item.IQuartzItem;
 import wavebrother.netherenhancement.common.util.QuartzTier;
 
-public class EnderShovel extends ShovelItem implements IQuartzItem {
+public class QuartzPickaxe extends PickaxeItem implements IQuartzItem {
 
-	private static final EnderToolsUtil tool = EnderToolsUtil.SHOVEL;
+	private static final QuartzToolsUtil tool = QuartzToolsUtil.PICKAXE;
 
-	public EnderShovel(QuartzTier material, String name) {
-		super(material.toolTier, tool.getDamage(material), tool.getSpeed(material),
+	public QuartzPickaxe(QuartzTier material, String name) {
+		super(material.toolTier, tool.getDamage(material).intValue(), tool.getSpeed(material),
 				new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
 		this.tier = material;
@@ -21,7 +21,7 @@ public class EnderShovel extends ShovelItem implements IQuartzItem {
 	private final QuartzTier tier;
 
 	@Override
-	public QuartzTier getEnderTier() {
+	public QuartzTier getQuartzTier() {
 		return tier;
 	}
 

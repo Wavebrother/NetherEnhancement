@@ -40,7 +40,7 @@ public class ItemVoid extends Item implements IQuartzItem {
 	}
 
 	@Override
-	public QuartzTier getEnderTier() {
+	public QuartzTier getQuartzTier() {
 		return tier;
 	}
 
@@ -109,9 +109,9 @@ public class ItemVoid extends Item implements IQuartzItem {
 				return;
 			}
 			items = worldIn.getEntitiesWithinAABB(ItemEntity.class,
-					new AxisAlignedBB(pos.getX() - getRange(getEnderTier()), pos.getY() - getRange(getEnderTier()),
-							pos.getZ() - getRange(getEnderTier()), pos.getX() + getRange(getEnderTier()),
-							pos.getY() + getRange(getEnderTier()), pos.getZ() + getRange(getEnderTier())),
+					new AxisAlignedBB(pos.getX() - getRange(getQuartzTier()), pos.getY() - getRange(getQuartzTier()),
+							pos.getZ() - getRange(getQuartzTier()), pos.getX() + getRange(getQuartzTier()),
+							pos.getY() + getRange(getQuartzTier()), pos.getZ() + getRange(getQuartzTier())),
 					EntityPredicates.NOT_SPECTATING);
 			for (ItemEntity itemEntity : items) {
 				if (playerIn != null) {

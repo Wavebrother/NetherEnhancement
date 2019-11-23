@@ -18,7 +18,7 @@ import wavebrother.netherenhancement.Config;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.Reference;
 import wavebrother.netherenhancement.common.util.QuartzTier;
-import wavebrother.netherenhancement.common.util.QuartzTier.EnderArmorMaterial;
+import wavebrother.netherenhancement.common.util.QuartzTier.QuartzArmorMaterial;
 
 @EventBusSubscriber(modid = Reference.MOD_ID)
 public class QuartzArmor extends ArmorItem implements IQuartzItem {
@@ -41,7 +41,7 @@ public class QuartzArmor extends ArmorItem implements IQuartzItem {
 	private final QuartzTier tier;
 
 	@Override
-	public QuartzTier getEnderTier() {
+	public QuartzTier getQuartzTier() {
 		return tier;
 	}
 
@@ -54,7 +54,7 @@ public class QuartzArmor extends ArmorItem implements IQuartzItem {
 	}
 
 	private static boolean checkArmor(ItemStack item, ArrayList<ItemStack> enderArmor, PlayerEntity entity) {
-		EnderArmorMaterial material = QuartzTier.OBSCURE.armorMaterial;
+		QuartzArmorMaterial material = QuartzTier.OBSCURE.armorMaterial;
 		for (ItemStack armor : entity.getArmorInventoryList()) {
 			if (armor.getItem() instanceof QuartzArmor)
 				enderArmor.add(armor);
@@ -63,8 +63,8 @@ public class QuartzArmor extends ArmorItem implements IQuartzItem {
 			return false;
 		else if (entity.getCooldownTracker().hasCooldown((QuartzArmor) enderArmor.get(0).getItem()))
 			return false;
-		if (((QuartzArmor) enderArmor.get(0).getItem()).material instanceof EnderArmorMaterial)
-			material = (EnderArmorMaterial) ((QuartzArmor) enderArmor.get(0).getItem()).material;
+		if (((QuartzArmor) enderArmor.get(0).getItem()).material instanceof QuartzArmorMaterial)
+			material = (QuartzArmorMaterial) ((QuartzArmor) enderArmor.get(0).getItem()).material;
 		if (item != null) {
 			if (enderArmor.get(0) != item)
 				return false;

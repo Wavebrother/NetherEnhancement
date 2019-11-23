@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "netherenhancement:items/extreme_pigman_agitator"
+        "layer0": "netherenhancement:item/extreme_pigman_agitator"
     }
 }

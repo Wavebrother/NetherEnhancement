@@ -8,17 +8,17 @@
 	"key": {
 		"b": [
 			{
-				"item": "netherenhancement:chiseled_empowered_quartz_block"
+				"item": "netherenhancement:block_chiseled_empowered_quartz_block"
 			},
 			{
-				"item": "netherenhancement:empowered_quartz_block"
+				"item": "netherenhancement:block_empowered_quartz_block"
 			},
 			{
-				"item": "netherenhancement:empowered_quartz_pillar"
+				"item": "netherenhancement:block_empowered_quartz_pillar"
 			}
 		],
 		"s": {
-			"item": "netherenhancement:item_empowered_ender_stick"
+			"item": "netherenhancement:item_empowered_quartz_stick"
 		}
 	},
 	"result": {

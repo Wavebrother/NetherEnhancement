@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "netherenhancement:items/quartz_shovel"
+        "layer0": "netherenhancement:item/quartz_shovel"
     }
 }

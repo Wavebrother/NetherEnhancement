@@ -6,18 +6,18 @@
   "key": {
     "#": [
       {
-        "item": "netherenhancement:chiseled_empowered_quartz_block"
+        "item": "netherenhancement:block_chiseled_empowered_quartz_block"
       },
       {
-        "item": "netherenhancement:empowered_quartz_block"
+        "item": "netherenhancement:block_empowered_quartz_block"
       },
       {
-        "item": "netherenhancement:empowered_quartz_pillar"
+        "item": "netherenhancement:block_empowered_quartz_pillar"
       }
     ]
   },
   "result": {
-    "item": "netherenhancement:empowered_quartz_slab",
+    "item": "netherenhancement:block_empowered_quartz_slab",
     "count": 6
   }
 }

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "netherenhancement:empowered_quartz_block"
+    "item": "netherenhancement:block_empowered_quartz_block"
   },
-  "result": "netherenhancement:chiseled_empowered_quartz_block",
+  "result": "netherenhancement:block_chiseled_empowered_quartz_block",
   "count": 1
 }

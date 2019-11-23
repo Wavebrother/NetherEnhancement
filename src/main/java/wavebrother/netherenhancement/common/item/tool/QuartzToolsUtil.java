@@ -5,7 +5,7 @@ import java.util.Map;
 
 import wavebrother.netherenhancement.common.util.QuartzTier;
 
-public enum EnderToolsUtil {
+public enum QuartzToolsUtil {
 	AXE(new float[] { 5, 6, 6, 7 }, new float[] { -3.2f, -3.2f, -3.0f, -3.0f }),
 	PICKAXE(new float[] { 1 }, new float[] { -2.8f }), HOE(new float[] { 0 }, new float[] { -3, -2, -1, 0 }),
 	SHOVEL(new float[] { 1.5f }, new float[] { -3 }), SWORD(new float[] { 3 }, new float[] { -2.4f }),
@@ -13,7 +13,7 @@ public enum EnderToolsUtil {
 	private final Map<QuartzTier, Float> attackDamage = new HashMap<QuartzTier, Float>();
 	private final Map<QuartzTier, Float> attackSpeed = new HashMap<QuartzTier, Float>();
 
-	EnderToolsUtil(float[] damage, float[] speed) {
+	QuartzToolsUtil(float[] damage, float[] speed) {
 		for (int i = 0; i < QuartzTier.values().length; i++) {
 			if (i < damage.length)
 				attackDamage.put(QuartzTier.values()[i], damage[i]);
@@ -34,10 +34,10 @@ public enum EnderToolsUtil {
 		return attackSpeed.get(tier);
 	}
 
-//	public TieredItem newEnderTool(EnderTier material, String name) {
+//	public TieredItem newQuartzTool(QuartzTier material, String name) {
 //		switch (this) {
 //		case AXE:
-//			return (AxeItem) new EnderAxe(material.toolTier, attackDamage.get(material),
+//			return (AxeItem) new QuartzAxe(material.toolTier, attackDamage.get(material),
 //					attackSpeed.get(material), new Item.Properties().group(NetherEnhancement.CREATIVE_TAB))
 //							.setRegistryName(name);
 //		case HOE:

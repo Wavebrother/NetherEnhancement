@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "netherenhancement:items/extreme_quartz_hoe"
+        "layer0": "netherenhancement:item/extreme_quartz_hoe"
     }
 }

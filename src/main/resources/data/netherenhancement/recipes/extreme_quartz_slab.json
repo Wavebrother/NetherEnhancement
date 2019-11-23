@@ -6,18 +6,18 @@
   "key": {
     "#": [
       {
-        "item": "netherenhancement:chiseled_extreme_quartz_block"
+        "item": "netherenhancement:block_chiseled_extreme_quartz_block"
       },
       {
-        "item": "netherenhancement:extreme_quartz_block"
+        "item": "netherenhancement:block_extreme_quartz_block"
       },
       {
-        "item": "netherenhancement:extreme_quartz_pillar"
+        "item": "netherenhancement:block_extreme_quartz_pillar"
       }
     ]
   },
   "result": {
-    "item": "netherenhancement:extreme_quartz_slab",
+    "item": "netherenhancement:block_extreme_quartz_slab",
     "count": 6
   }
 }

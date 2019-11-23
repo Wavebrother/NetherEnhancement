@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"e e",
+		" e ",
+		" e "
+	],
+	"key": {
+		"e": {
+			"item": "minecraft:quartz_block"
+		}
+	},
+	"result": {
+		"item": "netherenhancement:block_quartz_pedestal"
+	}
+}

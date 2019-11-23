@@ -1,104 +1,104 @@
 {
-	//Pearls
-	"item.netherenhancement.item_dull_ender_pearl": "Dull Ender Pearl",
-	"item.netherenhancement.item_empowered_ender_pearl": "Empowered Ender Pearl",
-	"item.netherenhancement.item_extreme_ender_pearl": "Extreme Ender Pearl",
+	//Quartzes
+	"item.netherenhancement.item_obscure_quartz": "Obscure Quartz",
+	"item.netherenhancement.item_empowered_quartz": "Empowered Quartz",
+	"item.netherenhancement.item_extreme_quartz": "Extreme Quartz",
 	
 	//Sticks
-	"item.netherenhancement.item_dull_ender_stick": "Dull Ender Stick",
-	"item.netherenhancement.item_ender_stick": "Ender Stick",
-	"item.netherenhancement.item_empowered_ender_stick": "Empowered Ender Stick",
-	"item.netherenhancement.item_extreme_ender_stick": "Extreme Ender Stick",
+	"item.netherenhancement.item_obscure_quartz_stick": "Obscure Quartz Stick",
+	"item.netherenhancement.item_quartz_stick": "Quartz Stick",
+	"item.netherenhancement.item_empowered_quartz_stick": "Empowered Quartz Stick",
+	"item.netherenhancement.item_extreme_quartz_stick": "Extreme Quartz Stick",
 	
 	//Axes
-	"item.netherenhancement.item_dull_ender_axe": "Dull Ender Axe",
-	"item.netherenhancement.item_ender_axe": "Ender Axe",
-	"item.netherenhancement.item_empowered_ender_axe": "Empowered Ender Axe",
-	"item.netherenhancement.item_extreme_ender_axe": "Extreme Ender Axe",
+	"item.netherenhancement.item_obscure_quartz_axe": "Obscure Quartz Axe",
+	"item.netherenhancement.item_quartz_axe": "Quartz Axe",
+	"item.netherenhancement.item_empowered_quartz_axe": "Empowered Quartz Axe",
+	"item.netherenhancement.item_extreme_quartz_axe": "Extreme Quartz Axe",
 	
 	//Hoes
-	"item.netherenhancement.item_dull_ender_hoe": "Dull Ender Hoe",
-	"item.netherenhancement.item_ender_hoe": "Ender Hoe",
-	"item.netherenhancement.item_empowered_ender_hoe": "Empowered Ender Hoe",
-	"item.netherenhancement.item_extreme_ender_hoe": "Extreme Ender Hoe",
+	"item.netherenhancement.item_obscure_quartz_hoe": "Obscure Quartz Hoe",
+	"item.netherenhancement.item_quartz_hoe": "Quartz Hoe",
+	"item.netherenhancement.item_empowered_quartz_hoe": "Empowered Quartz Hoe",
+	"item.netherenhancement.item_extreme_quartz_hoe": "Extreme Quartz Hoe",
 	
 	//Pickaxes
-	"item.netherenhancement.item_dull_ender_pickaxe": "Dull Ender Pickaxe",
-	"item.netherenhancement.item_ender_pickaxe": "Ender Pickaxe",
-	"item.netherenhancement.item_empowered_ender_pickaxe": "Empowered Ender Pickaxe",
-	"item.netherenhancement.item_extreme_ender_pickaxe": "Extreme Ender Pickaxe",
+	"item.netherenhancement.item_obscure_quartz_pickaxe": "Obscure Quartz Pickaxe",
+	"item.netherenhancement.item_quartz_pickaxe": "Quartz Pickaxe",
+	"item.netherenhancement.item_empowered_quartz_pickaxe": "Empowered Quartz Pickaxe",
+	"item.netherenhancement.item_extreme_quartz_pickaxe": "Extreme Quartz Pickaxe",
 	
 	//Shovels
-	"item.netherenhancement.item_dull_ender_shovel": "Dull Ender Shovel",
-	"item.netherenhancement.item_ender_shovel": "Ender Shovel",
-	"item.netherenhancement.item_empowered_ender_shovel": "Empowered Ender Shovel",
-	"item.netherenhancement.item_extreme_ender_shovel": "Extreme Ender Shovel",
+	"item.netherenhancement.item_obscure_quartz_shovel": "Obscure Quartz Shovel",
+	"item.netherenhancement.item_quartz_shovel": "Quartz Shovel",
+	"item.netherenhancement.item_empowered_quartz_shovel": "Empowered Quartz Shovel",
+	"item.netherenhancement.item_extreme_quartz_shovel": "Extreme Quartz Shovel",
 	
 	//Swords
-	"item.netherenhancement.item_dull_ender_sword": "Dull Ender Sword",
-	"item.netherenhancement.item_ender_sword": "Ender Sword",
-	"item.netherenhancement.item_empowered_ender_sword": "Empowered Ender Sword",
-	"item.netherenhancement.item_extreme_ender_sword": "Extreme Ender Sword",
+	"item.netherenhancement.item_obscure_quartz_sword": "Obscure Quartz Sword",
+	"item.netherenhancement.item_quartz_sword": "Quartz Sword",
+	"item.netherenhancement.item_empowered_quartz_sword": "Empowered Quartz Sword",
+	"item.netherenhancement.item_extreme_quartz_sword": "Extreme Quartz Sword",
 	
 	//Helmets
-	"item.netherenhancement.item_dull_ender_helmet": "Dull Ender Helmet",
-	"item.netherenhancement.item_ender_helmet": "Ender Helmet",
-	"item.netherenhancement.item_empowered_ender_helmet": "Empowered Ender Helmet",
-	"item.netherenhancement.item_extreme_ender_helmet": "Extreme Ender Helmet",
+	"item.netherenhancement.item_obscure_quartz_helmet": "Obscure Quartz Helmet",
+	"item.netherenhancement.item_quartz_helmet": "Quartz Helmet",
+	"item.netherenhancement.item_empowered_quartz_helmet": "Empowered Quartz Helmet",
+	"item.netherenhancement.item_extreme_quartz_helmet": "Extreme Quartz Helmet",
 	
 	//Chestplates
-	"item.netherenhancement.item_dull_ender_chestplate": "Dull Ender Chestplate",
-	"item.netherenhancement.item_ender_chestplate": "Ender Chestplate",
-	"item.netherenhancement.item_empowered_ender_chestplate": "Empowered Ender Chestplate",
-	"item.netherenhancement.item_extreme_ender_chestplate": "Extreme Ender Chestplate",
+	"item.netherenhancement.item_obscure_quartz_chestplate": "Obscure Quartz Chestplate",
+	"item.netherenhancement.item_quartz_chestplate": "Quartz Chestplate",
+	"item.netherenhancement.item_empowered_quartz_chestplate": "Empowered Quartz Chestplate",
+	"item.netherenhancement.item_extreme_quartz_chestplate": "Extreme Quartz Chestplate",
 	
 	//Leggings
-	"item.netherenhancement.item_dull_ender_leggings": "Dull Ender Leggings",
-	"item.netherenhancement.item_ender_leggings": "Ender Leggings",
-	"item.netherenhancement.item_empowered_ender_leggings": "Empowered Ender Leggings",
-	"item.netherenhancement.item_extreme_ender_leggings": "Extreme Ender Leggings",
+	"item.netherenhancement.item_obscure_quartz_leggings": "Obscure Quartz Leggings",
+	"item.netherenhancement.item_quartz_leggings": "Quartz Leggings",
+	"item.netherenhancement.item_empowered_quartz_leggings": "Empowered Quartz Leggings",
+	"item.netherenhancement.item_extreme_quartz_leggings": "Extreme Quartz Leggings",
 	
 	//Boots
-	"item.netherenhancement.item_dull_ender_boots": "Dull Ender Boots",
-	"item.netherenhancement.item_ender_boots": "Ender Boots",
-	"item.netherenhancement.item_empowered_ender_boots": "Empowered Ender Boots",
-	"item.netherenhancement.item_extreme_ender_boots": "Extreme Ender Boots",
+	"item.netherenhancement.item_obscure_quartz_boots": "Obscure Quartz Boots",
+	"item.netherenhancement.item_quartz_boots": "Quartz Boots",
+	"item.netherenhancement.item_empowered_quartz_boots": "Empowered Quartz Boots",
+	"item.netherenhancement.item_extreme_quartz_boots": "Extreme Quartz Boots",
 	
 	//Food
-	"item.netherenhancement.item_ender_fruit": "Ender Fruit",
+	"item.netherenhancement.item_quartz_fruit": "Quartz Fruit",
 	
 	//Multi Tools
-	"item.netherenhancement.item_dull_ender_tool": "Dull Ender Tool",
-	"item.netherenhancement.item_ender_tool": "Ender Tool",
-	"item.netherenhancement.item_empowered_ender_tool": "Empowered Ender Tool",
-	"item.netherenhancement.item_extreme_ender_tool": "Extreme Ender Tool",
-	
-	//Porters
-	"item.netherenhancement.item_dull_ender_porter": "Dull Ender Porter",
-	"item.netherenhancement.item_ender_pearler": "Ender Porter",
-	"item.netherenhancement.item_empowered_ender_porter": "Empowered Ender Porter",
-	"item.netherenhancement.item_extreme_ender_porter": "Extreme Ender Porter",
+	"item.netherenhancement.item_obscure_quartz_tool": "Obscure Quartz Multi-Tool",
+	"item.netherenhancement.item_quartz_tool": "Quartz Multi-Tool",
+	"item.netherenhancement.item_empowered_quartz_tool": "Empowered Quartz Multi-Tool",
+	"item.netherenhancement.item_extreme_quartz_tool": "Extreme Quartz Multi-Tool",
 	
 	//Agitators
-	"item.netherenhancement.item_dull_enderman_agitator": "Dull Enderman Agitator",
-	"item.netherenhancement.item_enderman_agitator": "Enderman Agitator",
-	"item.netherenhancement.item_empowered_enderman_agitator": "Empowered Enderman Agitator",
-	"item.netherenhancement.item_extreme_enderman_agitator": "Extreme Enderman Agitator",
+	"item.netherenhancement.item_obscure_pigman_agitator": "Obscure Pigman Agitator",
+	"item.netherenhancement.item_quartz_pigman_agitator": "Pigman Agitator",
+	"item.netherenhancement.item_empowered_pigman_agitator": "Empowered Pigman Agitator",
+	"item.netherenhancement.item_extreme_pigman_agitator": "Extreme Pigman Agitator",
 	
-	//Accumulators
-	"item.netherenhancement.item_dull_item_accumulator": "Dull Item Accumulator",
-	"item.netherenhancement.item_ender_item_accumulator": "Ender Item Accumulator",
-	"item.netherenhancement.item_empowered_item_accumulator": "Empowered Item Accumulator",
-	"item.netherenhancement.item_extreme_item_accumulator": "Extreme Item Accumulator",
+	//Voids
+	"item.netherenhancement.item_obscure_item_void": "Obscure Item Void",
+	"item.netherenhancement.item_quartz_item_void": "Quartz Item Void",
+	"item.netherenhancement.item_empowered_item_void": "Empowered Item Void",
+	"item.netherenhancement.item_extreme_item_void": "Extreme Item Void",
 	
 	//Blocks
-	"block.netherenhancement.block_dull_ender_block": "Dull Ender Block",
-	"block.netherenhancement.block_ender_block": "Ender Block",
-	"block.netherenhancement.block_empowered_ender_block": "Empowered Ender Block",
-	"block.netherenhancement.block_extreme_ender_block": "Extreme Ender Block",
-	"block.netherenhancement.block_ender_pedestal":"Ender Pedestal",
-	"tileentity.netherenhancement.tileentity_ender_pedestal":"Ender Pedestal",
+	"block.netherenhancement.block_chiseled_empowered_quartz_block": "Empowered Chiseled Quartz Block",
+	"block.netherenhancement.block_chiseled_extreme_quartz_block": "Extreme Chiseled Quartz Block",
+	"block.netherenhancement.block_empowered_quartz_block": "Empowered Quartz Block",
+	"block.netherenhancement.block_extreme_quartz_block": "Extreme Quartz Block",
+	"block.netherenhancement.block_empowered_quartz_pillar": "Empowered Quartz Pillar",
+	"block.netherenhancement.block_extreme_quartz_pillar": "Extreme Quartz Pillar",
+	"block.netherenhancement.block_empowered_quartz_slab": "Empowered Quartz Slab",
+	"block.netherenhancement.block_extreme_quartz_slab": "Extreme Quartz Slab",
+	"block.netherenhancement.block_empowered_quartz_stairs": "Empowered Quartz Stairs",
+	"block.netherenhancement.block_extreme_quartz_stairs": "Extreme Quartz Stairs",
+	"block.netherenhancement.block_quartz_pedestal":"Quartz Pedestal",
+	"tileentity.netherenhancement.tileentity_quartz_pedestal":"Quartz Pedestal",
 	
 	//Creative Tab
-	"itemGroup.netherenhancement": "Ender Enhancement"
+	"itemGroup.netherenhancement": "Nether Enhancement"
 }

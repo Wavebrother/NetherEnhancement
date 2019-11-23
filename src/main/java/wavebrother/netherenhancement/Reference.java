@@ -13,70 +13,65 @@ public class Reference {
 	public static enum Items {
 
 		// Basic Crafting Ingredients
-		DULLENDERPEARL("item_dull_quartz_pearl"), EMPOWEREDENDERPEARL("item_empowered_quartz_pearl"),
-		EXTREMEENDERPEARL("item_extreme_quartz_pearl"),
+		DULLQUARTZPEARL("item_dull_quartz"), EMPOWEREDQUARTZPEARL("item_empowered_quartz"),
+		EXTREMEQUARTZPEARL("item_extreme_quartz"),
 
 		// Sticks
-		DULLENDERSTICK("item_dull_quartz_stick"), ENDERSTICK("item_quartz_stick"),
-		EMPOWEREDENDERSTICK("item_empowered_quartz_stick"), EXTREMEENDERSTICK("item_extreme_quartz_stick"),
+		DULLQUARTZSTICK("item_dull_quartz_stick"), QUARTZSTICK("item_quartz_stick"),
+		EMPOWEREDQUARTZSTICK("item_empowered_quartz_stick"), EXTREMEQUARTZSTICK("item_extreme_quartz_stick"),
 
 		// Axes
-		DULLENDERAXE("item_dull_quartz_axe"), ENDERAXE("item_quartz_axe"), EMPOWEREDENDERAXE("item_empowered_quartz_axe"),
-		EXTREMEENDERAXE("item_extreme_quartz_axe"),
+		DULLQUARTZAXE("item_dull_quartz_axe"), QUARTZAXE("item_quartz_axe"),
+		EMPOWEREDQUARTZAXE("item_empowered_quartz_axe"), EXTREMEQUARTZAXE("item_extreme_quartz_axe"),
 
 		// Hoes
-		DULLENDERHOE("item_dull_quartz_hoe"), ENDERHOE("item_quartz_hoe"), EMPOWEREDENDERHOE("item_empowered_quartz_hoe"),
-		EXTREMEENDERHOE("item_extreme_quartz_hoe"),
+		DULLQUARTZHOE("item_dull_quartz_hoe"), QUARTZHOE("item_quartz_hoe"),
+		EMPOWEREDQUARTZHOE("item_empowered_quartz_hoe"), EXTREMEQUARTZHOE("item_extreme_quartz_hoe"),
 
 		// Pickaxes
-		DULLENDERPICKAXE("item_dull_quartz_pickaxe"), ENDERPICKAXE("item_quartz_pickaxe"),
-		EMPOWEREDENDERPICKAXE("item_empowered_quartz_pickaxe"), EXTREMEENDERPICKAXE("item_extreme_quartz_pickaxe"),
+		DULLQUARTZPICKAXE("item_dull_quartz_pickaxe"), QUARTZPICKAXE("item_quartz_pickaxe"),
+		EMPOWEREDQUARTZPICKAXE("item_empowered_quartz_pickaxe"), EXTREMEQUARTZPICKAXE("item_extreme_quartz_pickaxe"),
 
 		// Shovels
-		DULLENDERSHOVEL("item_dull_quartz_shovel"), ENDERSHOVEL("item_quartz_shovel"),
-		EMPOWEREDENDERSHOVEL("item_empowered_quartz_shovel"), EXTREMEENDERSHOVEL("item_extreme_quartz_shovel"),
+		DULLQUARTZSHOVEL("item_dull_quartz_shovel"), QUARTZSHOVEL("item_quartz_shovel"),
+		EMPOWEREDQUARTZSHOVEL("item_empowered_quartz_shovel"), EXTREMEQUARTZSHOVEL("item_extreme_quartz_shovel"),
 
 		// Swords
-		DULLENDERSWORD("item_dull_quartz_sword"), ENDERSWORD("item_quartz_sword"),
-		EMPOWEREDENDERSWORD("item_empowered_quartz_sword"), EXTREMEENDERSWORD("item_extreme_quartz_sword"),
+		DULLQUARTZSWORD("item_dull_quartz_sword"), QUARTZSWORD("item_quartz_sword"),
+		EMPOWEREDQUARTZSWORD("item_empowered_quartz_sword"), EXTREMEQUARTZSWORD("item_extreme_quartz_sword"),
 
 		// Helmets
-		DULLENDERHELMET("item_dull_quartz_helmet"), ENDERHELMET("item_quartz_helmet"),
-		EMPOWEREDENDERHELMET("item_empowered_quartz_helmet"), EXTREMEENDERHELMET("item_extreme_quartz_helmet"),
+		DULLQUARTZHELMET("item_dull_quartz_helmet"), QUARTZHELMET("item_quartz_helmet"),
+		EMPOWEREDQUARTZHELMET("item_empowered_quartz_helmet"), EXTREMEQUARTZHELMET("item_extreme_quartz_helmet"),
 
 		// Chestplates
-		DULLENDERCHESTPLATE("item_dull_quartz_chestplate"), ENDERCHESTPLATE("item_quartz_chestplate"),
-		EMPOWEREDENDERCHESTPLATE("item_empowered_quartz_chestplate"),
-		EXTREMEENDERCHESTPLATE("item_extreme_quartz_chestplate"),
+		DULLQUARTZCHESTPLATE("item_dull_quartz_chestplate"), QUARTZCHESTPLATE("item_quartz_chestplate"),
+		EMPOWEREDQUARTZCHESTPLATE("item_empowered_quartz_chestplate"),
+		EXTREMEQUARTZCHESTPLATE("item_extreme_quartz_chestplate"),
 
 		// Leggings
-		DULLENDERLEGGINGS("item_dull_quartz_leggings"), ENDERLEGGINGS("item_quartz_leggings"),
-		EMPOWEREDENDERLEGGINGS("item_empowered_quartz_leggings"), EXTREMEENDERLEGGINGS("item_extreme_quartz_leggings"),
+		DULLQUARTZLEGGINGS("item_dull_quartz_leggings"), QUARTZLEGGINGS("item_quartz_leggings"),
+		EMPOWEREDQUARTZLEGGINGS("item_empowered_quartz_leggings"),
+		EXTREMEQUARTZLEGGINGS("item_extreme_quartz_leggings"),
 
 		// Boots
-		DULLENDERBOOTS("item_dull_quartz_boots"), ENDERBOOTS("item_quartz_boots"),
-		EMPOWEREDENDERBOOTS("item_empowered_quartz_boots"), EXTREMEENDERBOOTS("item_extreme_quartz_boots"),
+		DULLQUARTZBOOTS("item_dull_quartz_boots"), QUARTZBOOTS("item_quartz_boots"),
+		EMPOWEREDQUARTZBOOTS("item_empowered_quartz_boots"), EXTREMEQUARTZBOOTS("item_extreme_quartz_boots"),
 
 		// Multi Tools
-		DULLENDERTOOL("item_dull_quartz_tool"), ENDERTOOL("item_quartz_tool"),
-		EMPOWEREDENDERTOOL("item_empowered_quartz_tool"), EXTREMEENDERTOOL("item_extreme_quartz_tool"),
-
-		// Porters
-		DULLENDERPORTER("item_dull_quartz_porter"), ENDERPORTER("item_quartz_pearler"),
-		EMPOWEREDENDERPORTER("item_empowered_quartz_porter"), EXTREMEENDERPORTER("item_extreme_quartz_porter"),
+		DULLQUARTZTOOL("item_dull_quartz_tool"), QUARTZTOOL("item_quartz_tool"),
+		EMPOWEREDQUARTZTOOL("item_empowered_quartz_tool"), EXTREMEQUARTZTOOL("item_extreme_quartz_tool"),
 
 		// Agitators
-		DULLENDERAGITATOR("item_dull_quartzman_agitator"), ENDERAGITATOR("item_quartzman_agitator"),
-		EMPOWEREDENDERAGITATOR("item_empowered_quartzman_agitator"),
-		EXTREMEENDERAGITATOR("item_extreme_quartzman_agitator"),
+		DULLAGITATOR("item_dull_pigman_agitator"), QUARTZAGITATOR("item_quartz_pigman_agitator"),
+		EMPOWEREDAGITATOR("item_empowered_pigman_agitator"), EXTREMEAGITATOR("item_extreme_pigman_agitator"),
 
 		// Accumulators
-		DULLITEMACCUMULATOR("item_dull_item_accumulator"), ENDERITEMACCUMULATOR("item_quartz_item_accumulator"),
-		EMPOWEREDITEMACCUMULATOR("item_empowered_item_accumulator"),
-		EXTREMEITEMACCUMULATOR("item_extreme_item_accumulator"),
+		DULLITEMVOID("item_dull_item_void"), QUARTZITEMVOID("item_quartz_item_void"),
+		EMPOWEREDITEMVOID("item_empowered_item_void"), EXTREMEITEMVOID("item_extreme_item_void"),
 
 		// Food
-		ENDERFRUIT("item_quartz_fruit");
+		QUARTZFRUIT("item_quartz_fruit");
 
 		private String registryName;
 
@@ -90,27 +85,17 @@ public class Reference {
 	}
 
 	public static enum Blocks {
-		DULLENDERBLOCK("block_dull_quartz_block"), ENDERBLOCK("block_quartz_block"),
-		EMPOWEREDENDERBLOCK("block_empowered_quartz_block"), EXTREMEENDERBLOCK("block_extreme_quartz_block"),
-		ENDERPEDESTAL("block_quartz_pedestal");
+		CHISELEDEMPOWEREDQUARTZBLOCK("block_chiseled_empowered_quartz_block"),
+		CHISELEDEXTREMEQUARTZBLOCK("block_chiseled_extreme_quartz_block"),
+		EMPOWEREDQUARTZBLOCK("block_empowered_quartz_block"), EXTREMEQUARTZBLOCK("block_extreme_quartz_block"),
+		EMPOWEREDQUARTZPILLAR("block_empowered_quartz_pillar"), EXTREMEQUARTZPILLAR("block_extreme_quartz_pillar"),
+		EMPOWEREDQUARTZSLAB("block_empowered_quartz_slab"), EXTREMEQUARTZSLAB("block_extreme_quartz_slab"),
+		EMPOWEREDQUARTZSTAIRS("block_empowered_quartz_stairs"), EXTREMEQUARTZSTAIRS("block_extreme_quartz_stairs"),
+		QUARTZPEDESTAL("block_quartz_pedestal");
 
 		private String registryName;
 
 		Blocks(String registryName) {
-			this.registryName = registryName;
-		}
-
-		public String getRegistryName() {
-			return registryName;
-		}
-	}
-
-	public static enum Entities {
-		ENDERPEDESTAL("entity_quartz_pedestal");
-
-		private String registryName;
-
-		Entities(String registryName) {
 			this.registryName = registryName;
 		}
 
@@ -134,7 +119,7 @@ public class Reference {
 	}
 
 	public static enum Capabilities {
-		ENDERGYCAPABILITY("capability_quartz_energy");
+		QUARTZGYCAPABILITY("capability_quartz_energy");
 
 		private String registryName;
 

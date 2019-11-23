@@ -1,5 +1,5 @@
 {
     "variants": {
-        "":   { "model": "block/block_empowered_quartz_block" }
+        "":   { "model": "netherenhancement:block/block_empowered_quartz_block" }
     }
 }

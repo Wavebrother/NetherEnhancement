@@ -1,7 +1,7 @@
 {
     "variants": {
-        "type=bottom": { "model": "block/block_extreme_quartz_slab" },
-        "type=top": { "model": "block/block_extreme_quartz_slab_top" },
-        "type=double": { "model": "block/block_extreme_quartz_block" }
+        "type=bottom": { "model": "netherenhancement:block/block_extreme_quartz_slab" },
+        "type=top": { "model": "netherenhancement:block/block_extreme_quartz_slab_top" },
+        "type=double": { "model": "netherenhancement:block/block_extreme_quartz_block" }
     }
 }

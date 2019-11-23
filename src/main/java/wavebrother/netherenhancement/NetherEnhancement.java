@@ -43,8 +43,7 @@ public class NetherEnhancement {
 		// EndermanEntity.death
 
 		MinecraftForge.EVENT_BUS.register(this);
-		MinecraftForge.EVENT_BUS.register(MobDropsHandler.class);
-		
+
 //		CapabilityManager.INSTANCE.register(CapabilityEndergy.class, new CapabilityEndergy.EndergyStorage(0), factory);
 	}
 

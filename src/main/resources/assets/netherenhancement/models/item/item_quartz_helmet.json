@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "netherenhancement:items/quartz_helmet"
+        "layer0": "netherenhancement:item/quartz_helmet"
     }
 }

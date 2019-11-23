@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "netherenhancement:items/empowered_quartz_sword"
+        "layer0": "netherenhancement:item/empowered_quartz_sword"
     }
 }

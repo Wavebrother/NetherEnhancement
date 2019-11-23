@@ -6,10 +6,10 @@
   ],
   "key": {
     "#": {
-      "item": "netherenhancement:empowered_quartz"
+      "item": "netherenhancement:item_empowered_quartz"
     }
   },
   "result": {
-    "item": "netherenhancement:empowered_quartz_block"
+    "item": "netherenhancement:block_empowered_quartz_block"
   }
 }

@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "netherenhancement:empowered_quartz_block"
+      "item": "netherenhancement:block_empowered_quartz_block"
     }
   },
   "result": {
-    "item": "netherenhancement:empowered_quartz_pillar",
+    "item": "netherenhancement:block_empowered_quartz_pillar",
     "count": 2
   }
 }

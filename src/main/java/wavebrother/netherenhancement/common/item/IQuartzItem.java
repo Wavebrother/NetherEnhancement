@@ -4,5 +4,5 @@ import wavebrother.netherenhancement.common.util.QuartzTier;
 
 public interface IQuartzItem {
 
-	public QuartzTier getEnderTier();
+	public QuartzTier getQuartzTier();
 }

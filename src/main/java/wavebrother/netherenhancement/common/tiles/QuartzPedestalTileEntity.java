@@ -55,7 +55,7 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 		if (!getWorld().isRemote && getPedestalItem().getItem() instanceof PigmanAgitator
 				&& !(getPedestalItem().hasTag()
 						&& getPedestalItem().getTag().getBoolean(PigmanAgitator.agitatorTag))) {
-			QuartzTier tier = ((PigmanAgitator) getPedestalItem().getItem()).getEnderTier();
+			QuartzTier tier = ((PigmanAgitator) getPedestalItem().getItem()).getQuartzTier();
 			List<PlayerEntity> players = getWorld().getEntitiesWithinAABB(PlayerEntity.class,
 					new AxisAlignedBB(pos.getX() - PigmanAgitator.getRange(tier),
 							pos.getY() - PigmanAgitator.getRange(tier), pos.getZ() - PigmanAgitator.getRange(tier),
@@ -89,7 +89,7 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 			this.markDirty();
 		}
 		if (hasWorld() && !getWorld().isRemote)
-			MinecraftForge.EVENT_BUS.post(new EnderPedestalUpdateEvent(this.pedestalItem, pos, false));
+			MinecraftForge.EVENT_BUS.post(new QuartzPedestalUpdateEvent(this.pedestalItem, pos, false));
 	}
 
 	public void clearPedestal() {
@@ -272,7 +272,7 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 			CompoundNBT pedestalItemNBT = compound.getCompound("PedestalItem");
 			setPedestalItem(ItemStack.read(pedestalItemNBT), false);
 		} else if (hasWorld() && getWorld().isRemote) {
-			MinecraftForge.EVENT_BUS.post(new EnderPedestalUpdateEvent(ItemStack.EMPTY, pos, true));
+			MinecraftForge.EVENT_BUS.post(new QuartzPedestalUpdateEvent(ItemStack.EMPTY, pos, true));
 		}
 		if (compound.contains("ItemOwner")) {
 			setItemOwner(world.getPlayerByUuid(compound.getUniqueId("ItemOwner")));
@@ -335,7 +335,7 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 	}
 
 	@SubscribeEvent
-	public void onPedestalChanged(EnderPedestalUpdateEvent event) {
+	public void onPedestalChanged(QuartzPedestalUpdateEvent event) {
 		if ((event.ping || (hasWorld() && getWorld().isRemote)) && event.position.getX() == pos.getX()
 				&& event.position.getY() == pos.getY() && event.position.getZ() == pos.getZ()) {
 			setPedestalItem(event.pedestalItem, event.ping);
@@ -352,12 +352,12 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 		return false;
 	}
 
-	public static class EnderPedestalUpdateEvent extends Event {
+	public static class QuartzPedestalUpdateEvent extends Event {
 		public ItemStack pedestalItem;
 		public BlockPos position;
 		public boolean ping;
 
-		public EnderPedestalUpdateEvent(ItemStack item, BlockPos pos, boolean ping) {
+		public QuartzPedestalUpdateEvent(ItemStack item, BlockPos pos, boolean ping) {
 			this.position = pos;
 			this.pedestalItem = item;
 			this.ping = ping;

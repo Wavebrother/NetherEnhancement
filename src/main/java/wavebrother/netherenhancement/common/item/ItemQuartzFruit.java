@@ -27,7 +27,7 @@ public class ItemQuartzFruit extends Item {
 
 	public ItemQuartzFruit() {
 		super(new Properties().group(NetherEnhancement.CREATIVE_TAB).food(createFruit()));
-		setRegistryName(Reference.Items.ENDERFRUIT.getRegistryName());
+		setRegistryName(Reference.Items.QUARTZFRUIT.getRegistryName());
 	}
 
 	private static Food createFruit() {
