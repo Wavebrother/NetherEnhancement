@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "side": "netherenhancement:block/extreme_chiseled_quartz_block",
+        "end": "netherenhancement:block/extreme_chiseled_quartz_block_top"
+    }
+}

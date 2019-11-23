@@ -1,8 +1,8 @@
 package wavebrother.netherenhancement.common.item;
 
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 public interface IQuartzItem {
 
-	public NetherTier getEnderTier();
+	public QuartzTier getEnderTier();
 }

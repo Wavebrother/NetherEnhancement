@@ -29,22 +29,22 @@ import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.Reference;
 import wavebrother.netherenhancement.common.blocks.QuartzPedestal;
 import wavebrother.netherenhancement.common.init.ModBlocks;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 @EventBusSubscriber(modid = Reference.MOD_ID)
 public class PigmanAgitator extends Item implements IQuartzItem {
 
 	public static final String agitatorTag = "agitator";
-	public final NetherTier tier;
+	public final QuartzTier tier;
 
-	public PigmanAgitator(NetherTier tier, String name) {
+	public PigmanAgitator(QuartzTier tier, String name) {
 		super(new Item.Properties().maxStackSize(1).group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
 		this.tier = tier;
 	}
 
 	@Override
-	public NetherTier getEnderTier() {
+	public QuartzTier getEnderTier() {
 		return tier;
 	}
 
@@ -99,7 +99,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 //		return false;
 //	}
 
-	public static int getRange(NetherTier tier) {
+	public static int getRange(QuartzTier tier) {
 		return Config.AGITATOR_RANGE.get() * Config.ENDER_TIER_MULTIPLIER.get(tier).get();
 	}
 
@@ -138,7 +138,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 			Entity attacker = ((EntityDamageSource) event.getSource()).getTrueSource();
 			PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 			if (player.getCooldownTracker().hasCooldown(DummyAgitator.INSTANCE)) {
-				NetherTier tier = NetherTier.valueOf(player.getPersistentData().getString(agitatorTag));
+				QuartzTier tier = QuartzTier.valueOf(player.getPersistentData().getString(agitatorTag));
 				List<EndermanEntity> endermen = attacker.world.getEntitiesWithinAABB(EndermanEntity.class,
 						new AxisAlignedBB(attacker.posX - getRange(tier), attacker.posY - getRange(tier),
 								attacker.posZ - getRange(tier), attacker.posX + getRange(tier),

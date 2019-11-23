@@ -6,12 +6,12 @@ import net.minecraft.block.SoundType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import wavebrother.netherenhancement.NetherEnhancement;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 public class QuartzBlock extends Block {
 
 	public final EnderBlockItem blockItem;
-	public QuartzBlock(NetherTier tier, String name) {
+	public QuartzBlock(QuartzTier tier, String name) {
 		super(Block.Properties.from(Blocks.IRON_BLOCK).sound(SoundType.ANVIL));
 		setRegistryName(name);
 		blockItem = new EnderBlockItem();

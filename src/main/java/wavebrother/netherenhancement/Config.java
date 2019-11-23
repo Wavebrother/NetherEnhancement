@@ -10,7 +10,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 @Mod.EventBusSubscriber
 public class Config {
@@ -27,7 +27,7 @@ public class Config {
 	public static ForgeConfigSpec CLIENT_CONFIG;
 
 	public static ForgeConfigSpec.BooleanValue HARDMODE;
-	public static HashMap<NetherTier, ForgeConfigSpec.IntValue> ENDER_TIER_MULTIPLIER = new HashMap<NetherTier, ForgeConfigSpec.IntValue>();
+	public static HashMap<QuartzTier, ForgeConfigSpec.IntValue> ENDER_TIER_MULTIPLIER = new HashMap<QuartzTier, ForgeConfigSpec.IntValue>();
 
 	public static ForgeConfigSpec.IntValue AGITATOR_RANGE;
 	public static ForgeConfigSpec.IntValue PORTER_RANGE;
@@ -37,14 +37,14 @@ public class Config {
 
 	public static ForgeConfigSpec.IntValue ENDER_ARMOR_TELEPORT_RANGE;
 
-	public static HashMap<NetherTier, ForgeConfigSpec.IntValue> ENDER_ARMOR_WATER_MINIMUM = new HashMap<NetherTier, ForgeConfigSpec.IntValue>();
-	public static HashMap<NetherTier, ForgeConfigSpec.IntValue> ENDER_ARMOR_ATTACK_MINIMUM = new HashMap<NetherTier, ForgeConfigSpec.IntValue>();
+	public static HashMap<QuartzTier, ForgeConfigSpec.IntValue> ENDER_ARMOR_WATER_MINIMUM = new HashMap<QuartzTier, ForgeConfigSpec.IntValue>();
+	public static HashMap<QuartzTier, ForgeConfigSpec.IntValue> ENDER_ARMOR_ATTACK_MINIMUM = new HashMap<QuartzTier, ForgeConfigSpec.IntValue>();
 
 	static {
 
 		COMMON_BUILDER.comment("General settings").push(CATEGORY_GENERAL);
 //        HARDMODE = COMMON_BUILDER.comment("Enable hardmode recipes (For modpacks) ~Not yet implemented~").define("hardmode", false);
-		for (NetherTier tier : NetherTier.values()) {
+		for (QuartzTier tier : QuartzTier.values()) {
 			ENDER_TIER_MULTIPLIER.put(tier, COMMON_BUILDER.comment("Multiplier for " + tier + " tier.")
 					.defineInRange(tier.toString().toLowerCase(), tier.defaultMultiplier(), 1, 16));
 		}
@@ -62,7 +62,7 @@ public class Config {
 		ENDER_ARMOR_TELEPORT_RANGE = COMMON_BUILDER.comment("Range to teleport").defineInRange("teleport_range", 32, 1,
 				128);
 		COMMON_BUILDER.comment("Water Settings").push(CATEGORY_ENDER_ARMOR_WATER);
-		for (NetherTier tier : NetherTier.values()) {
+		for (QuartzTier tier : QuartzTier.values()) {
 			ENDER_ARMOR_WATER_MINIMUM.put(tier, COMMON_BUILDER
 					.comment("Minimum number of pieces of " + tier
 							+ " armor to cause a water teleport.\nSet to 5 to never cause a water teleport.")
@@ -70,7 +70,7 @@ public class Config {
 		}
 		COMMON_BUILDER.pop();
 		COMMON_BUILDER.comment("Attack Settings").push(CATEGORY_ENDER_ARMOR_ATTACK);
-		for (NetherTier tier : NetherTier.values()) {
+		for (QuartzTier tier : QuartzTier.values()) {
 			ENDER_ARMOR_ATTACK_MINIMUM.put(tier, COMMON_BUILDER
 					.comment("Minimum number of pieces of " + tier
 							+ " armor to cause a attack teleport.\nSet to 5 to never cause a attack teleport.")

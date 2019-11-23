@@ -28,7 +28,7 @@ import wavebrother.netherenhancement.common.init.ModTileEntities;
 import wavebrother.netherenhancement.common.item.PigmanAgitator;
 import wavebrother.netherenhancement.common.item.ItemVoid;
 import wavebrother.netherenhancement.common.item.PigmanAgitator.DummyAgitator;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 @EventBusSubscriber(bus = Bus.FORGE)
 public class QuartzPedestalTileEntity extends TileEntity implements ITickableTileEntity, IInventory {
@@ -55,7 +55,7 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 		if (!getWorld().isRemote && getPedestalItem().getItem() instanceof PigmanAgitator
 				&& !(getPedestalItem().hasTag()
 						&& getPedestalItem().getTag().getBoolean(PigmanAgitator.agitatorTag))) {
-			NetherTier tier = ((PigmanAgitator) getPedestalItem().getItem()).getEnderTier();
+			QuartzTier tier = ((PigmanAgitator) getPedestalItem().getItem()).getEnderTier();
 			List<PlayerEntity> players = getWorld().getEntitiesWithinAABB(PlayerEntity.class,
 					new AxisAlignedBB(pos.getX() - PigmanAgitator.getRange(tier),
 							pos.getY() - PigmanAgitator.getRange(tier), pos.getZ() - PigmanAgitator.getRange(tier),

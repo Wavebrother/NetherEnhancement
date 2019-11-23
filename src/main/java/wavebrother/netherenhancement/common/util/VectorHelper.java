@@ -10,11 +10,11 @@ import net.minecraft.world.World;
 import wavebrother.netherenhancement.Config;
 
 public class VectorHelper {
-    public static BlockRayTraceResult getLookingAt(PlayerEntity player, NetherTier tier, ItemStack tool) {
+    public static BlockRayTraceResult getLookingAt(PlayerEntity player, QuartzTier tier, ItemStack tool) {
         return getLookingAt(player, tier, RayTraceContext.FluidMode.NONE);
     }
 
-    public static BlockRayTraceResult getLookingAt(PlayerEntity player, NetherTier tier, RayTraceContext.FluidMode rayTraceFluid) {
+    public static BlockRayTraceResult getLookingAt(PlayerEntity player, QuartzTier tier, RayTraceContext.FluidMode rayTraceFluid) {
         World world = player.world;
 
         Vec3d look = player.getLookVec();
@@ -27,7 +27,7 @@ public class VectorHelper {
         return result;
     }
 
-    public static BlockPos getPosLookingAt(PlayerEntity player, NetherTier tier, ItemStack tool) {
+    public static BlockPos getPosLookingAt(PlayerEntity player, QuartzTier tier, ItemStack tool) {
         return VectorHelper.getLookingAt(player, tier, tool).getPos();
     }
 }

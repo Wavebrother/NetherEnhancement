@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.Reference;
 import wavebrother.netherenhancement.common.item.IQuartzItem;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 @EventBusSubscriber(bus = Bus.MOD, modid = Reference.MOD_ID)
 public class EnderMultiTool extends ToolItem implements IQuartzItem {
@@ -29,7 +29,7 @@ public class EnderMultiTool extends ToolItem implements IQuartzItem {
 		MinecraftForge.EVENT_BUS.register(EnderMultiTool.class);
 	}
 
-	public EnderMultiTool(NetherTier material, String name) {
+	public EnderMultiTool(QuartzTier material, String name) {
 		super(tool.getDamage(material), tool.getSpeed(material), material.toolTier, new HashSet<Block>(),
 				new Item.Properties().group(NetherEnhancement.CREATIVE_TAB)
 						.addToolType(ToolType.AXE, material.toolTier.getHarvestLevel())
@@ -40,10 +40,10 @@ public class EnderMultiTool extends ToolItem implements IQuartzItem {
 		// TODO Auto-generated constructor stub
 	}
 
-	private final NetherTier tier;
+	private final QuartzTier tier;
 
 	@Override
-	public NetherTier getEnderTier() {
+	public QuartzTier getEnderTier() {
 		return tier;
 	}
 

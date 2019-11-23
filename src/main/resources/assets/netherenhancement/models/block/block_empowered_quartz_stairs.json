@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "netherenhancement:block/empowered_quartz_block_top",
+        "top": "netherenhancement:block/empowered_quartz_block_top",
+        "side": "netherenhancement:block/empowered_quartz_block_side"
+    }
+}

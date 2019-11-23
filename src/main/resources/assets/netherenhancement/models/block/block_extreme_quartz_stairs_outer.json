@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "netherenhancement:block/extreme_quartz_block_bottom",
+        "top": "netherenhancement:block/extreme_quartz_block_top",
+        "side": "netherenhancement:block/extreme_quartz_block_side"
+    }
+}

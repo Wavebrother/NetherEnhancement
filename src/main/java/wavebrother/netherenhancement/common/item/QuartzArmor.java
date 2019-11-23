@@ -17,8 +17,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import wavebrother.netherenhancement.Config;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.Reference;
-import wavebrother.netherenhancement.common.util.NetherTier;
-import wavebrother.netherenhancement.common.util.NetherTier.EnderArmorMaterial;
+import wavebrother.netherenhancement.common.util.QuartzTier;
+import wavebrother.netherenhancement.common.util.QuartzTier.EnderArmorMaterial;
 
 @EventBusSubscriber(modid = Reference.MOD_ID)
 public class QuartzArmor extends ArmorItem implements IQuartzItem {
@@ -31,17 +31,17 @@ public class QuartzArmor extends ArmorItem implements IQuartzItem {
 		MinecraftForge.EVENT_BUS.register(QuartzArmor.class);
 	}
 
-	public QuartzArmor(NetherTier material, EquipmentSlotType slot, String name) {
+	public QuartzArmor(QuartzTier material, EquipmentSlotType slot, String name) {
 		super(material.armorMaterial, slot, new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
 		this.tier = material;
 		// TODO Auto-generated constructor stub
 	}
 
-	private final NetherTier tier;
+	private final QuartzTier tier;
 
 	@Override
-	public NetherTier getEnderTier() {
+	public QuartzTier getEnderTier() {
 		return tier;
 	}
 
@@ -54,7 +54,7 @@ public class QuartzArmor extends ArmorItem implements IQuartzItem {
 	}
 
 	private static boolean checkArmor(ItemStack item, ArrayList<ItemStack> enderArmor, PlayerEntity entity) {
-		EnderArmorMaterial material = NetherTier.OBSCURE.armorMaterial;
+		EnderArmorMaterial material = QuartzTier.OBSCURE.armorMaterial;
 		for (ItemStack armor : entity.getArmorInventoryList()) {
 			if (armor.getItem() instanceof QuartzArmor)
 				enderArmor.add(armor);

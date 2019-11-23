@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import wavebrother.netherenhancement.Reference;
 import wavebrother.netherenhancement.common.blocks.QuartzBlock;
 import wavebrother.netherenhancement.common.blocks.QuartzPedestal;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 @EventBusSubscriber(bus = Bus.MOD, modid = Reference.MOD_ID)
 public class ModBlocks {
@@ -21,10 +21,10 @@ public class ModBlocks {
 	public static QuartzPedestal quartzPedestal;
 
 	public static void init(){
-		dullEnderBlock = new QuartzBlock(NetherTier.OBSCURE, Reference.Blocks.DULLENDERBLOCK.getRegistryName());
-		enderBlock = new QuartzBlock(NetherTier.BASE, Reference.Blocks.ENDERBLOCK.getRegistryName());
-		empoweredEnderBlock = new QuartzBlock(NetherTier.EMPOWERED, Reference.Blocks.EMPOWEREDENDERBLOCK.getRegistryName());
-		extremeEnderBlock = new QuartzBlock(NetherTier.EXTREME, Reference.Blocks.EXTREMEENDERBLOCK.getRegistryName());
+		dullEnderBlock = new QuartzBlock(QuartzTier.OBSCURE, Reference.Blocks.DULLENDERBLOCK.getRegistryName());
+		enderBlock = new QuartzBlock(QuartzTier.BASE, Reference.Blocks.ENDERBLOCK.getRegistryName());
+		empoweredEnderBlock = new QuartzBlock(QuartzTier.EMPOWERED, Reference.Blocks.EMPOWEREDENDERBLOCK.getRegistryName());
+		extremeEnderBlock = new QuartzBlock(QuartzTier.EXTREME, Reference.Blocks.EXTREMEENDERBLOCK.getRegistryName());
 		quartzPedestal = new QuartzPedestal("block_ender_pedestal");
 	}
 	

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.common.item.IQuartzItem;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 @EventBusSubscriber(bus = Bus.FORGE)
 public class EnderSword extends SwordItem implements IQuartzItem {
@@ -24,7 +24,7 @@ public class EnderSword extends SwordItem implements IQuartzItem {
 		MinecraftForge.EVENT_BUS.register(EnderSword.class);
 	}
 
-	public EnderSword(NetherTier material, String name) {
+	public EnderSword(QuartzTier material, String name) {
 		super(material.toolTier, tool.getDamage(material).intValue(), tool.getSpeed(material),
 				new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
@@ -32,10 +32,10 @@ public class EnderSword extends SwordItem implements IQuartzItem {
 		// TODO Auto-generated constructor stub
 	}
 
-	private final NetherTier tier;
+	private final QuartzTier tier;
 
 	@Override
-	public NetherTier getEnderTier() {
+	public QuartzTier getEnderTier() {
 		return tier;
 	}
 

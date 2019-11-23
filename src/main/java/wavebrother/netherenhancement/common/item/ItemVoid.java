@@ -25,22 +25,22 @@ import wavebrother.netherenhancement.Reference;
 import wavebrother.netherenhancement.common.blocks.QuartzPedestal;
 import wavebrother.netherenhancement.common.init.ModBlocks;
 import wavebrother.netherenhancement.common.tiles.QuartzPedestalTileEntity;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 @EventBusSubscriber(modid = Reference.MOD_ID)
 public class ItemVoid extends Item implements IQuartzItem {
 
 	public static final String accumulatorTag = "accumulator";
-	public final NetherTier tier;
+	public final QuartzTier tier;
 
-	public ItemVoid(NetherTier tier, String name) {
+	public ItemVoid(QuartzTier tier, String name) {
 		super(new Item.Properties().maxStackSize(1).group(NetherEnhancement.CREATIVE_TAB));
 		setRegistryName(name);
 		this.tier = tier;
 	}
 
 	@Override
-	public NetherTier getEnderTier() {
+	public QuartzTier getEnderTier() {
 		return tier;
 	}
 
@@ -93,7 +93,7 @@ public class ItemVoid extends Item implements IQuartzItem {
 //		return false;
 //	}
 
-	private static int getRange(NetherTier tier) {
+	private static int getRange(QuartzTier tier) {
 		return Config.ACCUMULATOR_RANGE.get() * Config.ENDER_TIER_MULTIPLIER.get(tier).get();
 	}
 

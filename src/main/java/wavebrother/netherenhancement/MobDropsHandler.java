@@ -12,7 +12,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import wavebrother.netherenhancement.common.item.tool.EnderSword;
-import wavebrother.netherenhancement.common.util.NetherTier;
+import wavebrother.netherenhancement.common.util.QuartzTier;
 
 @EventBusSubscriber(bus = Bus.FORGE)
 public class MobDropsHandler {
@@ -24,7 +24,7 @@ public class MobDropsHandler {
 		LogManager.getLogger().debug(event.getEntityLiving().getPersistentData().getString(EnderSword.hitTag));
 		if (event.getEntity() instanceof EndermanEntity
 				&& event.getEntityLiving().getPersistentData().contains(EnderSword.hitTag)) {
-			NetherTier tier = NetherTier
+			QuartzTier tier = QuartzTier
 					.valueOf(event.getEntityLiving().getPersistentData().getString(EnderSword.hitTag));
 			if (random.nextDouble() < 1/* / tier.multiplier() */) {
 				ItemStack stack = new ItemStack(tier.getQuartz());
