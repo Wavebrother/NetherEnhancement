@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"ee",
+		" s",
+		" s"
+	],
+	"key": {
+		"e": {
+			"item": "netherenhancement:item_extreme_quartz"
+		},
+		"s": {
+			"item": "netherenhancement:item_extreme_quartz_stick"
+		}
+	},
+	"result": {
+		"item": "netherenhancement:item_extreme_quartz_hoe"
+	}
+}

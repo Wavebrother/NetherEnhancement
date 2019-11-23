@@ -3,12 +3,12 @@
     "ingredients":
     [
         {
-            "item": "netherenhancement:item_extreme_ender_pearl"
+            "item": "netherenhancement:item_extreme_quartz"
         }
     ],
     "result":
     {
-        "item": "netherenhancement:item_empowered_ender_pearl",
+        "item": "netherenhancement:item_empowered_quartz",
         "count": 9
     }
 }

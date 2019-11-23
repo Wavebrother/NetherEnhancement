@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "netherenhancement:chiseled_empowered_quartz_block"
+      },
+      {
+        "item": "netherenhancement:empowered_quartz_block"
+      },
+      {
+        "item": "netherenhancement:empowered_quartz_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "netherenhancement:empowered_quartz_slab",
+    "count": 6
+  }
+}

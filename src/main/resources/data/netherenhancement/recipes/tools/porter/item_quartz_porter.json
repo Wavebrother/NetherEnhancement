@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"  e",
+		" s ",
+		"s  "
+	],
+	"key": {
+		"e": {
+			"item": "minecraft:quartz"
+		},
+		"s": {
+			"item": "netherenhancement:item_quartz_stick"
+		}
+	},
+	"result": {
+		"item": "netherenhancement:item_quartz_pearler"
+	}
+}

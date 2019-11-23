@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "netherenhancement:empowered_quartz_block"
+  },
+  "result": "netherenhancement:empowered_quartz_slab",
+  "count": 2
+}

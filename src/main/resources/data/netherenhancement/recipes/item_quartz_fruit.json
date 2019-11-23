@@ -1,0 +1,30 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"mmm",
+		"bxb",
+		" b "
+	],
+	"key": {
+		"m": {
+			"item": "netherenhancement:item_empowered_quartz"
+		},
+		"x": {
+			"item": "netherenhancement:item_extreme_quartz"
+		},
+		"b": [
+			{
+				"item": "minecraft:chiseled_quartz_block"
+			},
+			{
+				"item": "minecraft:quartz_block"
+			},
+			{
+				"item": "minecraft:quartz_pillar"
+			}
+		]
+	},
+	"result": {
+		"item": "netherenhancement:item_quartz_fruit"
+	}
+}

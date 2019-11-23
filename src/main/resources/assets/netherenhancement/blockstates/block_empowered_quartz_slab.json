@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "block/block_empowered_quartz_slab" },
+        "type=top": { "model": "block/block_empowered_quartz_slab_top" },
+        "type=double": { "model": "block/block_empowered_quartz_block" }
+    }
+}

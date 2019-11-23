@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "netherenhancement:empowered_quartz"
+    }
+  },
+  "result": {
+    "item": "netherenhancement:empowered_quartz_block"
+  }
+}

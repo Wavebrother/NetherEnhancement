@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"e",
+		"e"
+	],
+	"key": {
+		"e": {
+			"item": "netherenhancement:item_empowered_quartz"
+		}
+	},
+	"result": {
+		"item": "netherenhancement:item_empowered_quartz_stick",
+		"count": 2
+	}
+}

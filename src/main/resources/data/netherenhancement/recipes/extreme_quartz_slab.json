@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "netherenhancement:chiseled_extreme_quartz_block"
+      },
+      {
+        "item": "netherenhancement:extreme_quartz_block"
+      },
+      {
+        "item": "netherenhancement:extreme_quartz_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "netherenhancement:extreme_quartz_slab",
+    "count": 6
+  }
+}

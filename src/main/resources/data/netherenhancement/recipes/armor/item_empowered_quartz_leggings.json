@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "eee",
+        "e e",
+        "e e"
+    ],
+    "key":
+    {
+        "e":
+        {
+            "item": "netherenhancement:item_empowered_quartz"
+        }
+    },
+    "result":
+    {
+        "item": "netherenhancement:item_empowered_quartz_leggings"
+    }
+}
