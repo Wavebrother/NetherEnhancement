@@ -2,8 +2,6 @@ package wavebrother.netherenhancement.common.blocks;
 
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -29,8 +27,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameters;
 import wavebrother.netherenhancement.NetherEnhancement;
-import wavebrother.netherenhancement.common.item.PigmanAgitator;
 import wavebrother.netherenhancement.common.item.ItemVoid;
+import wavebrother.netherenhancement.common.item.PigmanAgitator;
 import wavebrother.netherenhancement.common.tiles.QuartzPedestalTileEntity;
 
 public class QuartzPedestal extends /* Container */Block {
@@ -165,8 +163,6 @@ public class QuartzPedestal extends /* Container */Block {
 
 	public TileEntity createNewTileEntity(IBlockReader worldIn) {
 		QuartzPedestalTileEntity pedestal = new QuartzPedestalTileEntity();
-		LogManager.getLogger().debug(worldIn.getClass());
-		// pedestal.init((World) worldIn);
 		return pedestal;
 	}
 

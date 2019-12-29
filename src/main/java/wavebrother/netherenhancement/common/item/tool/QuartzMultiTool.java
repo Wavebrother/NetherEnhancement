@@ -49,7 +49,6 @@ public class QuartzMultiTool extends ToolItem implements IQuartzItem {
 
 	@SubscribeEvent
 	public static void onHarvestBlock(HarvestDropsEvent event) {
-		NetherEnhancement.getLogger().debug("Harvest");
 		if (!event.getWorld().isRemote() && event.isCancelable()) {
 			for (ItemStack drop : event.getDrops())
 				if (!event.getHarvester().addItemStackToInventory(drop)) {
