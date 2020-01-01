@@ -37,8 +37,9 @@ public class QuartzPedestalTER extends TileEntityRenderer<QuartzPedestalTileEnti
 			return true;
 		}
 		if (item.getItem() instanceof ItemVoid) {
-			return item.hasTag() && item.getTag().contains(ItemVoid.voidTag)
-					&& item.getTag().getBoolean(ItemVoid.voidTag);
+			return true;
+//			return item.hasTag() && item.getTag().contains(ItemVoid.voidTag)
+//					&& item.getTag().getBoolean(ItemVoid.voidTag);
 		}
 		return false;
 	}

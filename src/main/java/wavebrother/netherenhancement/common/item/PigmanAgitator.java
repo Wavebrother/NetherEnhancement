@@ -58,10 +58,10 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 		if (playerIn.isSneaking()) {
 			NBT.putBoolean(agitatorTag, !NBT.getBoolean(agitatorTag));
 			if (NBT.getBoolean(agitatorTag)) {
-				worldIn.playSound(playerIn, playerIn.getPosition(), SoundEvents.ENTITY_ENDERMAN_SCREAM,
+				worldIn.playSound(playerIn, playerIn.getPosition(), SoundEvents.ENTITY_ZOMBIE_PIGMAN_ANGRY,
 						SoundCategory.PLAYERS, 0.15F, 1.2F);
 			} else {
-				worldIn.playSound(playerIn, playerIn.getPosition(), SoundEvents.ENTITY_ENDERMAN_AMBIENT,
+				worldIn.playSound(playerIn, playerIn.getPosition(), SoundEvents.ENTITY_ZOMBIE_PIGMAN_AMBIENT,
 						SoundCategory.PLAYERS, 0.25F, 1F);
 			}
 			return new ActionResult<ItemStack>(ActionResultType.SUCCESS, item);

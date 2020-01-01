@@ -171,8 +171,6 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 	}
 
 	private int addResource(int p_191973_1_, ItemStack p_191973_2_) {
-		@SuppressWarnings("unused")
-		Item item = p_191973_2_.getItem();
 		int i = p_191973_2_.getCount();
 		ItemStack itemstack = this.getStackInSlot(p_191973_1_);
 		if (itemstack.isEmpty()) {
@@ -353,12 +351,12 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 
 	@Override
 	public ItemStack removeStackFromSlot(int index) {
-		return ItemStackHelper.getAndRemove(inventory, index);
+		return ItemStack.EMPTY;
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int index, ItemStack item) {
-		return false;
+		return true;
 	}
 
 	public static class QuartzPedestalUpdateEvent extends Event {
