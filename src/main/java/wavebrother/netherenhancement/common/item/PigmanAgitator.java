@@ -1,5 +1,8 @@
 package wavebrother.netherenhancement.common.item;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 import net.minecraft.block.BlockState;
@@ -12,7 +15,6 @@ import net.minecraft.item.ItemUseContext;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityPredicates;
 import net.minecraft.util.Hand;
@@ -101,7 +103,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 //	}
 
 	public static int getRange(QuartzTier tier) {
-		return Config.AGITATOR_RANGE.get() * Config.ENDER_TIER_MULTIPLIER.get(tier).get();
+		return Config.AGITATOR_RANGE.get() * Config.QUARTZ_TIER_MULTIPLIER.get(tier).get();
 	}
 
 	@Override
@@ -116,7 +118,12 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 								entityIn.posZ + getRange(getQuartzTier())),
 						EntityPredicates.NOT_SPECTATING);
 				for (ZombiePigmanEntity pigman : pigmen) {
-					pigman.attackEntityFrom(DamageSource.GENERIC, 0);
+					try {
+						Method becomeAngryAt = pigman.getClass().getDeclaredMethod("becomeAngryAt");
+						becomeAngryAt.invoke(pigman, entityIn);
+					} catch (SecurityException | IllegalArgumentException | IllegalAccessException
+							| InvocationTargetException | NoSuchMethodException e) {
+					}
 				}
 			} else {
 				player.getCooldownTracker().setCooldown(DummyAgitator.INSTANCE, 2);
@@ -146,6 +153,16 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 						}
 						pigman.setRevengeTarget(null);
 						pigman.setAttackTarget(null);
+						try {
+							Field angerLevel = pigman.getClass().getDeclaredField("angerLevel");
+							angerLevel.setAccessible(true);
+							angerLevel.set(pigman, 0);
+							Field randomSoundDelay = pigman.getClass().getDeclaredField("randomSoundDelay");
+							randomSoundDelay.setAccessible(true);
+							randomSoundDelay.set(pigman, 0);
+						} catch (NoSuchFieldException | SecurityException | IllegalArgumentException
+								| IllegalAccessException e) {
+						}
 					}
 				}
 				event.setCanceled(true);

@@ -41,7 +41,7 @@ public enum QuartzTier {
 	}
 
 	public int multiplier() {
-		return Config.ENDER_TIER_MULTIPLIER.get(this).get();
+		return Config.QUARTZ_TIER_MULTIPLIER.get(this).get();
 	}
 
 	public Item getQuartz() {

@@ -53,6 +53,7 @@ public class QuartzArmor extends ArmorItem implements IQuartzItem {
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 	}
 
+	@SuppressWarnings("unused")
 	private static boolean checkArmor(ItemStack item, ArrayList<ItemStack> enderArmor, PlayerEntity entity) {
 		QuartzArmorMaterial material = QuartzTier.OBSCURE.armorMaterial;
 		for (ItemStack armor : entity.getArmorInventoryList()) {
@@ -66,11 +67,9 @@ public class QuartzArmor extends ArmorItem implements IQuartzItem {
 		if (((QuartzArmor) enderArmor.get(0).getItem()).material instanceof QuartzArmorMaterial)
 			material = (QuartzArmorMaterial) ((QuartzArmor) enderArmor.get(0).getItem()).material;
 		if (item != null) {
-			if (enderArmor.get(0) != item)
-				return false;
-			return enderArmor.size() >= Config.ENDER_ARMOR_WATER_MINIMUM.get(material.getTier()).get();
+			return false;
 		} else {
-			return enderArmor.size() >= Config.ENDER_ARMOR_ATTACK_MINIMUM.get(material.getTier()).get();
+			return enderArmor.size() >= Config.QUARTZ_ARMOR_ATTACK_MINIMUM.get(material.getTier()).get();
 		}
 	}
 

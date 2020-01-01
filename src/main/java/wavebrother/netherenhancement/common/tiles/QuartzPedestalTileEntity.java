@@ -49,12 +49,11 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 
 	@Override
 	public void tick() {
-		if (!getWorld().isRemote && getPedestalItem().getItem() instanceof ItemVoid) {
-			((ItemVoid) getPedestalItem().getItem()).collectItems(getPedestalItem(), getWorld(), null, this);
-		}
-		if (!getWorld().isRemote && getPedestalItem().getItem() instanceof PigmanAgitator
-				&& !(getPedestalItem().hasTag()
-						&& getPedestalItem().getTag().getBoolean(PigmanAgitator.agitatorTag))) {
+		if (getWorld().isRemote)
+			return;
+		if (getPedestalItem().getItem() instanceof ItemVoid) {
+			this.inventory.clear();
+		} else if (getPedestalItem().getItem() instanceof PigmanAgitator) {
 			QuartzTier tier = ((PigmanAgitator) getPedestalItem().getItem()).getQuartzTier();
 			List<PlayerEntity> players = getWorld().getEntitiesWithinAABB(PlayerEntity.class,
 					new AxisAlignedBB(pos.getX() - PigmanAgitator.getRange(tier),
@@ -62,12 +61,20 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 							pos.getX() + PigmanAgitator.getRange(tier), pos.getY() + PigmanAgitator.getRange(tier),
 							pos.getZ() + PigmanAgitator.getRange(tier)),
 					EntityPredicates.NOT_SPECTATING);
+			PlayerEntity closestPlayer = null;
 			for (PlayerEntity player : players) {
-				player.getCooldownTracker().setCooldown(DummyAgitator.INSTANCE, 2);
-				player.getPersistentData().putString(PigmanAgitator.agitatorTag, tier.name());
+				if (!(getPedestalItem().hasTag()
+						&& getPedestalItem().getTag().getBoolean(PigmanAgitator.agitatorTag))) {
+					player.getCooldownTracker().setCooldown(DummyAgitator.INSTANCE, 2);
+					player.getPersistentData().putString(PigmanAgitator.agitatorTag, tier.name());
+				}
+				if (closestPlayer == null || closestPlayer.getDistanceSq(pos.getX(), pos.getY(), pos.getZ()) > player
+						.getDistanceSq(pos.getX(), pos.getY(), pos.getZ()))
+					closestPlayer = player;
 			}
+			if (closestPlayer != null)
+				getPedestalItem().inventoryTick(getWorld(), closestPlayer, 0, false);
 		}
-
 	}
 
 	private PlayerEntity getItemOwner() {
@@ -117,6 +124,8 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 		} else if (getWorld().getBlockState(getPos()).has(QuartzPedestal.HAS_ACCUMULATOR)
 				|| getWorld().getBlockState(getPos()).has(QuartzPedestal.HAS_AGITATOR))
 			return false;
+		if (itemOwner == null)
+			return true;
 		return player == itemOwner;
 	}
 
