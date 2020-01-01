@@ -31,3 +31,9 @@ authors="Wavebrother" #optional
 description='''
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.enderenhancement]]
+	modId="forge"
+	mandatory=true
+	versionRange="[30.0.17,)"
+	ordering="NONE"
+	side="BOTH"

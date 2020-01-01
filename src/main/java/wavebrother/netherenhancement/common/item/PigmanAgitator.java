@@ -22,6 +22,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
@@ -55,7 +56,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack item = playerIn.getHeldItem(handIn);
 		CompoundNBT NBT = item.getOrCreateTag();
-		if (playerIn.isSneaking()) {
+		if (playerIn.isCrouching()) {
 			NBT.putBoolean(agitatorTag, !NBT.getBoolean(agitatorTag));
 			if (NBT.getBoolean(agitatorTag)) {
 				worldIn.playSound(playerIn, playerIn.getPosition(), SoundEvents.ENTITY_ZOMBIE_PIGMAN_ANGRY,
@@ -111,11 +112,12 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 		if (entityIn instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity) entityIn;
 			if (stack.hasTag() && stack.getTag().getBoolean(agitatorTag)) {
+				Vec3d entityPos = entityIn.getPositionVec();
 				List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
-						new AxisAlignedBB(entityIn.posX - getRange(getQuartzTier()),
-								entityIn.posY - getRange(getQuartzTier()), entityIn.posZ - getRange(getQuartzTier()),
-								entityIn.posX + getRange(getQuartzTier()), entityIn.posY + getRange(getQuartzTier()),
-								entityIn.posZ + getRange(getQuartzTier())),
+						new AxisAlignedBB(entityPos.x - getRange(getQuartzTier()),
+								entityPos.y - getRange(getQuartzTier()), entityPos.z - getRange(getQuartzTier()),
+								entityPos.x + getRange(getQuartzTier()), entityPos.y + getRange(getQuartzTier()),
+								entityPos.z + getRange(getQuartzTier())),
 						EntityPredicates.NOT_SPECTATING);
 				for (ZombiePigmanEntity pigman : pigmen) {
 					try {
@@ -137,16 +139,16 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 		if (event.getSource() instanceof EntityDamageSource
 				&& ((EntityDamageSource) event.getSource()).getTrueSource() instanceof ZombiePigmanEntity
 				&& event.getEntityLiving() instanceof PlayerEntity) {
-			Entity attacker = ((EntityDamageSource) event.getSource()).getTrueSource();
 			PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 			if (player.getCooldownTracker().hasCooldown(DummyAgitator.INSTANCE)) {
 				QuartzTier tier = QuartzTier.valueOf(player.getPersistentData().getString(agitatorTag));
-				List<ZombiePigmanEntity> endermen = attacker.world.getEntitiesWithinAABB(ZombiePigmanEntity.class,
-						new AxisAlignedBB(attacker.posX - getRange(tier), attacker.posY - getRange(tier),
-								attacker.posZ - getRange(tier), attacker.posX + getRange(tier),
-								attacker.posY + getRange(tier), attacker.posZ + getRange(tier)),
+				Vec3d playerPos = player.getPositionVec();
+				List<ZombiePigmanEntity> pigmen = player.world.getEntitiesWithinAABB(ZombiePigmanEntity.class,
+						new AxisAlignedBB(playerPos.x - getRange(tier), playerPos.y - getRange(tier),
+								playerPos.z - getRange(tier), playerPos.x + getRange(tier),
+								playerPos.y + getRange(tier), playerPos.z + getRange(tier)),
 						EntityPredicates.NOT_SPECTATING);
-				for (ZombiePigmanEntity pigman : endermen) {
+				for (ZombiePigmanEntity pigman : pigmen) {
 					if (pigman.getAttackTarget() instanceof PlayerEntity) {
 						if (pigman.getAttackingEntity() instanceof PlayerEntity) {
 							pigman.getCombatTracker().reset();

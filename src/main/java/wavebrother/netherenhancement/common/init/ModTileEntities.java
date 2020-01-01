@@ -36,6 +36,6 @@ public class ModTileEntities {
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderers() {
-		ClientRegistry.bindTileEntitySpecialRenderer(QuartzPedestalTileEntity.class, new QuartzPedestalTER());
+		ClientRegistry.bindTileEntityRenderer(quartzPedestal, QuartzPedestalTER::new);
 	}
 }
