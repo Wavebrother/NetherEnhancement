@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -37,14 +38,14 @@ public class QuartzPedestal extends /* Container */Block {
 			Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D),
 			Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 14.0D, 11.0D));
 
-	public final EnderPedestalItem blockItem;
+	public final QuartzPedestalItem blockItem;
 
 	public QuartzPedestal(String name) {
 		super(Block.Properties.from(Blocks.STONE));
 		setRegistryName(name);
 		this.setDefaultState(this.stateContainer.getBaseState().with(HAS_AGITATOR, Boolean.valueOf(false))
 				.with(HAS_ACCUMULATOR, Boolean.valueOf(false)));
-		blockItem = new EnderPedestalItem();
+		blockItem = new QuartzPedestalItem();
 	}
 
 	@Override
@@ -57,23 +58,25 @@ public class QuartzPedestal extends /* Container */Block {
 		return createNewTileEntity(world);
 	}
 
-	public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn,
+	public ActionResultType func_225533_a_(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn,
 			BlockRayTraceResult hit) {
+		System.out.println("Activated");
 		if ((state.get(HAS_AGITATOR) || state.get(HAS_ACCUMULATOR)) && player.isCrouching()) {
+			System.out.println("Removing");
 			if (!worldIn.isRemote)
 				extract(worldIn, player, pos);
 			state = state.with(HAS_AGITATOR, Boolean.valueOf(false));
 			state = state.with(HAS_ACCUMULATOR, Boolean.valueOf(false));
 			worldIn.setBlockState(pos, state, 2);
-			return true;
+			return ActionResultType.SUCCESS;
 		} else if (player.getHeldItem(handIn).getItem() instanceof PigmanAgitator
 				|| player.getHeldItem(handIn).getItem() instanceof ItemVoid) {
-			return false;
+			return ActionResultType.FAIL;
 		} else if (!worldIn.isRemote) {
 			extractInventory(worldIn, player, pos);
-			return true;
+			return ActionResultType.SUCCESS;
 		} else
-			return true;
+			return ActionResultType.PASS;
 	}
 
 	public static void insertItem(IWorld worldIn, PlayerEntity player, BlockPos pos, BlockState state,
@@ -178,9 +181,9 @@ public class QuartzPedestal extends /* Container */Block {
 		return SHAPE;
 	}
 
-	public class EnderPedestalItem extends BlockItem {
+	public class QuartzPedestalItem extends BlockItem {
 
-		protected EnderPedestalItem() {
+		protected QuartzPedestalItem() {
 			super(QuartzPedestal.this, new Item.Properties().group(NetherEnhancement.CREATIVE_TAB));
 			setRegistryName(QuartzPedestal.this.getRegistryName());
 		}

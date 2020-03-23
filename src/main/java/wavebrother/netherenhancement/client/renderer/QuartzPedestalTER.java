@@ -30,7 +30,7 @@ public class QuartzPedestalTER extends TileEntityRenderer<QuartzPedestalTileEnti
 		if (!itemstack.isEmpty()) {
 			matrix.func_227860_a_();
 			matrix.func_227861_a_(0.5D, 1.0D, 0.5D);
-			if (checkRotation(itemstack)) {
+			if (doesRotation(itemstack)) {
 				matrix.func_227863_a_(
 						Vector3f.field_229179_b_.func_229187_a_((float) (pedestal.getWorld().getGameTime() % 360)));
 				matrix.func_227863_a_(
@@ -38,12 +38,12 @@ public class QuartzPedestalTER extends TileEntityRenderer<QuartzPedestalTileEnti
 			}
 			Minecraft.getInstance().getItemRenderer().func_229110_a_(itemstack,
 					ItemCameraTransforms.TransformType.FIXED, int1, OverlayTexture.field_229196_a_, matrix, buffer);
+			matrix.func_227865_b_();
 		}
 
-		matrix.func_227865_b_();
 	}
 
-	private boolean checkRotation(ItemStack item) {
+	private boolean doesRotation(ItemStack item) {
 		if (item.getItem() instanceof PigmanAgitator) {
 			return true;
 		}
