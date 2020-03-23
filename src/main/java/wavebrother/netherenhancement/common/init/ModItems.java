@@ -272,7 +272,7 @@ public class ModItems {
 				ModBlocks.empoweredChiseledQuartzBlock.blockItem, ModBlocks.extremeChiseledQuartzBlock.blockItem,
 				ModBlocks.empoweredQuartzBlock.blockItem, ModBlocks.extremeQuartzBlock.blockItem,
 				ModBlocks.empoweredQuartzPillar.blockItem, ModBlocks.extremeQuartzPillar.blockItem,
-			ModBlocks.empoweredQuartzSlab.blockItem, ModBlocks.extremeQuartzSlab.blockItem,
+				ModBlocks.empoweredQuartzSlab.blockItem, ModBlocks.extremeQuartzSlab.blockItem,
 				ModBlocks.empoweredQuartzStairs.blockItem, ModBlocks.extremeQuartzStairs.blockItem,
 				ModBlocks.quartzPedestal.blockItem);
 	}

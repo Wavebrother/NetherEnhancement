@@ -113,19 +113,23 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 			PlayerEntity player = (PlayerEntity) entityIn;
 			if (!player.isCreative()) {
 				if (stack.hasTag() && stack.getTag().getBoolean(agitatorTag)) {
-					Vec3d entityPos = entityIn.getPositionVec();
-					List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
-							new AxisAlignedBB(entityPos.x - getRange(getQuartzTier()),
-									entityPos.y - getRange(getQuartzTier()), entityPos.z - getRange(getQuartzTier()),
-									entityPos.x + getRange(getQuartzTier()), entityPos.y + getRange(getQuartzTier()),
-									entityPos.z + getRange(getQuartzTier())),
-							EntityPredicates.NOT_SPECTATING);
-					for (ZombiePigmanEntity pigman : pigmen) {
-						try {
-							Method becomeAngryAt = pigman.getClass().getDeclaredMethod("becomeAngryAt");
-							becomeAngryAt.invoke(pigman, entityIn);
-						} catch (SecurityException | IllegalArgumentException | IllegalAccessException
-								| InvocationTargetException | NoSuchMethodException e) {
+					if (worldIn.getGameTime() % 20 == 0) {
+						Vec3d entityPos = entityIn.getPositionVec();
+						List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
+								new AxisAlignedBB(entityPos.x - getRange(getQuartzTier()),
+										entityPos.y - getRange(getQuartzTier()),
+										entityPos.z - getRange(getQuartzTier()),
+										entityPos.x + getRange(getQuartzTier()),
+										entityPos.y + getRange(getQuartzTier()),
+										entityPos.z + getRange(getQuartzTier())),
+								EntityPredicates.NOT_SPECTATING);
+						for (ZombiePigmanEntity pigman : pigmen) {
+							try {
+								Method becomeAngryAt = pigman.getClass().getDeclaredMethod("becomeAngryAt");
+								becomeAngryAt.invoke(pigman, entityIn);
+							} catch (SecurityException | IllegalArgumentException | IllegalAccessException
+									| InvocationTargetException | NoSuchMethodException e) {
+							}
 						}
 					}
 				} else {
