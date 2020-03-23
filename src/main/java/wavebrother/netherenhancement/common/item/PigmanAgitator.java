@@ -37,7 +37,7 @@ import wavebrother.netherenhancement.common.util.QuartzTier;
 @EventBusSubscriber(modid = Reference.MOD_ID)
 public class PigmanAgitator extends Item implements IQuartzItem {
 
-	public static final String agitatorTag = "agitator";
+	public static final String agitatorTag = "pigmanAgitator";
 	public final QuartzTier tier;
 
 	public PigmanAgitator(QuartzTier tier, String name) {
