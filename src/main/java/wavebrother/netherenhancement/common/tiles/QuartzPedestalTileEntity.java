@@ -171,6 +171,8 @@ public class QuartzPedestalTileEntity extends TileEntity implements ITickableTil
 	}
 
 	private int addResource(int p_191973_1_, ItemStack p_191973_2_) {
+		@SuppressWarnings("unused")
+		Item item = p_191973_2_.getItem();
 		int i = p_191973_2_.getCount();
 		ItemStack itemstack = this.getStackInSlot(p_191973_1_);
 		if (itemstack.isEmpty()) {

@@ -112,20 +112,22 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 			PlayerEntity player = (PlayerEntity) entityIn;
 			if (!player.isCreative()) {
 				if (stack.hasTag() && stack.getTag().getBoolean(agitatorTag)) {
-					List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
-							new AxisAlignedBB(entityIn.posX - getRange(getQuartzTier()),
-									entityIn.posY - getRange(getQuartzTier()),
-									entityIn.posZ - getRange(getQuartzTier()),
-									entityIn.posX + getRange(getQuartzTier()),
-									entityIn.posY + getRange(getQuartzTier()),
-									entityIn.posZ + getRange(getQuartzTier())),
-							EntityPredicates.NOT_SPECTATING);
-					for (ZombiePigmanEntity pigman : pigmen) {
-						try {
-							Method becomeAngryAt = pigman.getClass().getDeclaredMethod("becomeAngryAt");
-							becomeAngryAt.invoke(pigman, entityIn);
-						} catch (SecurityException | IllegalArgumentException | IllegalAccessException
-								| InvocationTargetException | NoSuchMethodException e) {
+					if (worldIn.getGameTime() % 20 == 0) {
+						List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
+								new AxisAlignedBB(entityIn.posX - getRange(getQuartzTier()),
+										entityIn.posY - getRange(getQuartzTier()),
+										entityIn.posZ - getRange(getQuartzTier()),
+										entityIn.posX + getRange(getQuartzTier()),
+										entityIn.posY + getRange(getQuartzTier()),
+										entityIn.posZ + getRange(getQuartzTier())),
+								EntityPredicates.NOT_SPECTATING);
+						for (ZombiePigmanEntity pigman : pigmen) {
+							try {
+								Method becomeAngryAt = pigman.getClass().getDeclaredMethod("becomeAngryAt");
+								becomeAngryAt.invoke(pigman, entityIn);
+							} catch (SecurityException | IllegalArgumentException | IllegalAccessException
+									| InvocationTargetException | NoSuchMethodException e) {
+							}
 						}
 					}
 				} else {
@@ -137,7 +139,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 	}
 
 	@SubscribeEvent
-	public static void onQuartzHit(LivingAttackEvent event) {
+	public static void onPigmanHit(LivingAttackEvent event) {
 		if (event.getSource() instanceof EntityDamageSource
 				&& ((EntityDamageSource) event.getSource()).getTrueSource() instanceof ZombiePigmanEntity
 				&& event.getEntityLiving() instanceof PlayerEntity) {
@@ -175,7 +177,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 	}
 
 	@SubscribeEvent
-	public static void onQuartzSetAttack(LivingSetAttackTargetEvent event) {
+	public static void onPigmanSetAttack(LivingSetAttackTargetEvent event) {
 		if (event.getEntityLiving() instanceof ZombiePigmanEntity && event.getTarget() instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity) event.getTarget();
 			if (player.getCooldownTracker().hasCooldown(DummyAgitator.INSTANCE)) {
