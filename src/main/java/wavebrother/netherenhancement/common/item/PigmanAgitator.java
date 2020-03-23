@@ -110,24 +110,28 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (entityIn instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity) entityIn;
-			if (stack.hasTag() && stack.getTag().getBoolean(agitatorTag)) {
-				List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
-						new AxisAlignedBB(entityIn.posX - getRange(getQuartzTier()),
-								entityIn.posY - getRange(getQuartzTier()), entityIn.posZ - getRange(getQuartzTier()),
-								entityIn.posX + getRange(getQuartzTier()), entityIn.posY + getRange(getQuartzTier()),
-								entityIn.posZ + getRange(getQuartzTier())),
-						EntityPredicates.NOT_SPECTATING);
-				for (ZombiePigmanEntity pigman : pigmen) {
-					try {
-						Method becomeAngryAt = pigman.getClass().getDeclaredMethod("becomeAngryAt");
-						becomeAngryAt.invoke(pigman, entityIn);
-					} catch (SecurityException | IllegalArgumentException | IllegalAccessException
-							| InvocationTargetException | NoSuchMethodException e) {
+			if (!player.isCreative()) {
+				if (stack.hasTag() && stack.getTag().getBoolean(agitatorTag)) {
+					List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
+							new AxisAlignedBB(entityIn.posX - getRange(getQuartzTier()),
+									entityIn.posY - getRange(getQuartzTier()),
+									entityIn.posZ - getRange(getQuartzTier()),
+									entityIn.posX + getRange(getQuartzTier()),
+									entityIn.posY + getRange(getQuartzTier()),
+									entityIn.posZ + getRange(getQuartzTier())),
+							EntityPredicates.NOT_SPECTATING);
+					for (ZombiePigmanEntity pigman : pigmen) {
+						try {
+							Method becomeAngryAt = pigman.getClass().getDeclaredMethod("becomeAngryAt");
+							becomeAngryAt.invoke(pigman, entityIn);
+						} catch (SecurityException | IllegalArgumentException | IllegalAccessException
+								| InvocationTargetException | NoSuchMethodException e) {
+						}
 					}
+				} else {
+					player.getCooldownTracker().setCooldown(DummyAgitator.INSTANCE, 2);
+					player.getPersistentData().putString(agitatorTag, getQuartzTier().name());
 				}
-			} else {
-				player.getCooldownTracker().setCooldown(DummyAgitator.INSTANCE, 2);
-				player.getPersistentData().putString(agitatorTag, getQuartzTier().name());
 			}
 		}
 	}
