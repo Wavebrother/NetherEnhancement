@@ -114,14 +114,13 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 			if (!player.isCreative()) {
 				if (stack.hasTag() && stack.getTag().getBoolean(agitatorTag)) {
 					if (worldIn.getGameTime() % 20 == 0) {
-						Vec3d entityPos = entityIn.getPositionVec();
 						List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
-								new AxisAlignedBB(entityPos.x - getRange(getQuartzTier()),
-										entityPos.y - getRange(getQuartzTier()),
-										entityPos.z - getRange(getQuartzTier()),
-										entityPos.x + getRange(getQuartzTier()),
-										entityPos.y + getRange(getQuartzTier()),
-										entityPos.z + getRange(getQuartzTier())),
+								new AxisAlignedBB(entityIn.posX - getRange(getQuartzTier()),
+										entityIn.posY - getRange(getQuartzTier()),
+										entityIn.posZ - getRange(getQuartzTier()),
+										entityIn.posX + getRange(getQuartzTier()),
+										entityIn.posY + getRange(getQuartzTier()),
+										entityIn.posZ + getRange(getQuartzTier())),
 								EntityPredicates.NOT_SPECTATING);
 						for (ZombiePigmanEntity pigman : pigmen) {
 							try {
@@ -141,7 +140,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 	}
 
 	@SubscribeEvent
-	public static void onQuartzHit(LivingAttackEvent event) {
+	public static void onPigmanHit(LivingAttackEvent event) {
 		if (event.getSource() instanceof EntityDamageSource
 				&& ((EntityDamageSource) event.getSource()).getTrueSource() instanceof ZombiePigmanEntity
 				&& event.getEntityLiving() instanceof PlayerEntity) {
@@ -179,7 +178,7 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 	}
 
 	@SubscribeEvent
-	public static void onQuartzSetAttack(LivingSetAttackTargetEvent event) {
+	public static void onPigmanSetAttack(LivingSetAttackTargetEvent event) {
 		if (event.getEntityLiving() instanceof ZombiePigmanEntity && event.getTarget() instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity) event.getTarget();
 			if (player.getCooldownTracker().hasCooldown(DummyAgitator.INSTANCE)) {
