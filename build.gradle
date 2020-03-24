@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.15.2-1.0.1.1'
+version = '1.15.2-1.0.1.2'
 group = 'wavebrother.netherenhancement' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'NetherEnhancement'
 
@@ -25,7 +25,7 @@ minecraft {
     // stable_#            Stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'snapshot', version: '20191123-1.14.3'
+    mappings channel: 'snapshot', version: '20200119-1.14.3'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -43,7 +43,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                NetherEnhancement {
+                netherenhancement {
                     source sourceSets.main
                 }
             }
@@ -85,6 +85,19 @@ minecraft {
     }
 }
 
+repositories {
+  maven {
+    // location of the maven that hosts JEI files
+    name = "Progwml6 maven"
+    url = "https://dvs1.progwml6.com/files/maven/"
+  }
+  maven {
+    // location of a maven mirror for JEI files, as a fallback
+    name = "ModMaven"
+    url = "https://modmaven.k-4u.nl"
+  }
+}
+
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
@@ -101,7 +114,7 @@ dependencies {
 
     // The 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     // provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    // runtimeOnly fg.deobf("mezz.jei:jei-1.14.4:6.0.0.18")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.2")
 
     // These dependencies get remapped to your current MCP mappings
     // deobf 'com.mod-buildcraft:buildcraft:6.0.8:dev'
@@ -109,7 +122,6 @@ dependencies {
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
@@ -120,7 +132,7 @@ jar {
             "Specification-Vendor": "Wavebrother",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
+            "Implementation-Version": version,
             "Implementation-Vendor" :"Wavebrother",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
@@ -148,15 +160,3 @@ publishing {
         }
     }
 }
-// repositories {
-//   maven {
-//     // location of the maven that hosts JEI files
-//     name = "Progwml6 maven"
-//     url = "https://dvs1.progwml6.com/files/maven/"
-//   }
-//   maven {
-//     // location of a maven mirror for JEI files, as a fallback
-//     name = "ModMaven"
-//     url = "https://modmaven.k-4u.nl"
-//   }
-// }
