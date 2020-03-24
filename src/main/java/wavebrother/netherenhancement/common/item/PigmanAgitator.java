@@ -114,13 +114,12 @@ public class PigmanAgitator extends Item implements IQuartzItem {
 			if (!player.isCreative()) {
 				if (stack.hasTag() && stack.getTag().getBoolean(agitatorTag)) {
 					if (worldIn.getGameTime() % 20 == 0) {
-						List<ZombiePigmanEntity> pigmen = worldIn.getEntitiesWithinAABB(ZombiePigmanEntity.class,
-								new AxisAlignedBB(entityIn.posX - getRange(getQuartzTier()),
-										entityIn.posY - getRange(getQuartzTier()),
-										entityIn.posZ - getRange(getQuartzTier()),
-										entityIn.posX + getRange(getQuartzTier()),
-										entityIn.posY + getRange(getQuartzTier()),
-										entityIn.posZ + getRange(getQuartzTier())),
+						QuartzTier tier = QuartzTier.valueOf(player.getPersistentData().getString(agitatorTag));
+						Vec3d playerPos = player.getPositionVec();
+						List<ZombiePigmanEntity> pigmen = player.world.getEntitiesWithinAABB(ZombiePigmanEntity.class,
+								new AxisAlignedBB(playerPos.x - getRange(tier), playerPos.y - getRange(tier),
+										playerPos.z - getRange(tier), playerPos.x + getRange(tier),
+										playerPos.y + getRange(tier), playerPos.z + getRange(tier)),
 								EntityPredicates.NOT_SPECTATING);
 						for (ZombiePigmanEntity pigman : pigmen) {
 							try {
