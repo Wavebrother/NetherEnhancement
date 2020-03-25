@@ -22,7 +22,7 @@ public class InventoryFilterScreen extends ContainerScreen<InventoryFilterContai
 		super(container, playerInventory, title);
 		xSize = 176;
 		ySize = 166;
-		addButton(new CheckboxButton(1,1,18,18,"Auto Delete",false));
+		addButton(container.inventory.filterItem.autoDelete);
 	}
 
 	@Override
