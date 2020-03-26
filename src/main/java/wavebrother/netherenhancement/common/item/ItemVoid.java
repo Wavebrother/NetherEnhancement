@@ -8,11 +8,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.inventory.container.ChestContainer;
-import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,7 +23,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -49,9 +47,11 @@ import wavebrother.netherenhancement.common.util.QuartzTier;
 public class ItemVoid extends Item implements IQuartzItem, IItemFilter {
 
 	public static final String voidTag = "itemVoid";
+	public static final String voidChild = "itemVoidChild";
+	public static final String voidIndex = "itemVoidIndex";
 	public final QuartzTier tier;
-	
-	public final CheckboxButton autoDelete = new CheckboxButton(1,1,18,18,"Void",false);
+
+	public final CheckboxButton autoDelete = new CheckboxButton(1, 1, 18, 18, "Void", false);
 
 	public ItemVoid(QuartzTier tier, String name) {
 		super(new Item.Properties().maxStackSize(1).group(NetherEnhancement.CREATIVE_TAB));
@@ -69,7 +69,7 @@ public class ItemVoid extends Item implements IQuartzItem, IItemFilter {
 		ItemStack item = playerIn.getHeldItem(handIn);
 		if (playerIn.isSneaking()) {
 
-		CompoundNBT NBT = item.getOrCreateTag();
+			CompoundNBT NBT = item.getOrCreateTag();
 			NBT.putBoolean(voidTag, !NBT.getBoolean(voidTag));
 			if (NBT.getBoolean(voidTag)) {
 				playerIn.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.3F, 1);
@@ -225,24 +225,103 @@ public class ItemVoid extends Item implements IQuartzItem, IItemFilter {
 		return false;
 	}
 
-	private static class VoidContainer implements INamedContainerProvider {
-
-		@Override
-		public Container createMenu(int i, PlayerInventory inventory, PlayerEntity player) {
-			return ChestContainer.createGeneric9X3(i, inventory);
-		}
-
-		@Override
-		public ITextComponent getDisplayName() {
-			return new StringTextComponent("Item Void");
-		}
-
-	}
+//	private static class VoidContainer implements INamedContainerProvider {
+//
+//		@Override
+//		public Container createMenu(int i, PlayerInventory inventory, PlayerEntity player) {
+//			return ChestContainer.createGeneric9X3(i, inventory);
+//		}
+//
+//		@Override
+//		public ITextComponent getDisplayName() {
+//			return new StringTextComponent("Item Void");
+//		}
+//
+//	}
 
 	@Override
 	public boolean filter(ItemStack filter, ItemStack stack) {
-		// TODO Auto-generated method stub
+		for (ItemStack item : getInventory(filter).getItems()) {
+			if (item.getItem() == stack.getItem() && item.getDamage() == stack.getDamage())
+				return true;
+		}
 		return false;
+	}
+
+//	public void destroyItems(ItemStack stack, World worldIn, PlayerEntity playerIn, QuartzPedestalTileEntity pedestal) {
+//		if (stack.hasTag() && stack.getTag().getBoolean(voidTag)) {
+//			List<ItemEntity> items;
+//			BlockPos pos;
+//			if (playerIn != null) {
+//				pos = playerIn.getPosition();
+//			} else if (pedestal != null) {
+//				pos = pedestal.getPos();
+//			} else {
+//				return;
+//			}
+//			items = worldIn.getEntitiesWithinAABB(ItemEntity.class,
+//					new AxisAlignedBB(pos.getX() - getRange(getEnderTier()), pos.getY() - getRange(getEnderTier()),
+//							pos.getZ() - getRange(getEnderTier()), pos.getX() + getRange(getEnderTier()),
+//							pos.getY() + getRange(getEnderTier()), pos.getZ() + getRange(getEnderTier())),
+//					EntityPredicates.NOT_SPECTATING);
+//			for (ItemEntity itemEntity : items) {
+//				if (playerIn != null) {
+//					if (itemEntity.getThrowerId() != playerIn.getUniqueID()) {
+//						itemEntity.onCollideWithPlayer(playerIn);
+//					}
+//				} else if (pedestal != null && !itemEntity.cannotPickup()) {
+//					pedestal.addItemStackToInventory(itemEntity.getItem());
+//					if (itemEntity.getItem().isEmpty())
+//						itemEntity.remove();
+//				} else
+//					return;
+//			}
+//		}
+//	}
+
+	@Override
+	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+		if (entityIn instanceof PlayerEntity && !worldIn.isRemote && stack.getOrCreateTag().getBoolean(voidTag)) {
+			PlayerEntity player = (PlayerEntity) entityIn;
+			int maxDelay = 1;
+			int maxDelete = 1;
+			switch (tier) {
+			case OBSCURE:
+				maxDelay = 16;
+				maxDelete = 8;
+				break;
+			case BASE:
+				maxDelay = 8;
+				maxDelete = 16;
+				break;
+			case EMPOWERED:
+				maxDelay = 4;
+				maxDelete = 32;
+				break;
+			case EXTREME:
+				maxDelay = 2;
+				maxDelete = 64;
+				break;
+			}
+			if (worldIn.getGameTime() % maxDelay == 0) {
+				int i = player.getPersistentData().getInt(voidIndex);
+				while (i < player.inventory.mainInventory.size() && player.inventory.mainInventory.get(i).isEmpty())
+					i++;
+				if (i >= player.inventory.mainInventory.size())
+					i = 0;
+				if (filter(stack, player.inventory.mainInventory.get(i))) {
+					int count = player.inventory.mainInventory.get(i).getCount();
+					if (count <= maxDelete)
+						player.inventory.mainInventory.get(i).setCount(0);
+					else {
+						player.inventory.mainInventory.get(i).setCount(count - maxDelete);
+						return;
+					}
+				}
+				i++;
+				player.getPersistentData().putInt(voidIndex, i);
+			}
+		}
 	}
 
 }
