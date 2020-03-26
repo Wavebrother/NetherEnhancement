@@ -67,7 +67,7 @@ public class ItemVoid extends Item implements IQuartzItem, IItemFilter {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack item = playerIn.getHeldItem(handIn);
-		if (playerIn.isSneaking()) {
+		if (playerIn.isCrouching()) {
 
 			CompoundNBT NBT = item.getOrCreateTag();
 			NBT.putBoolean(voidTag, !NBT.getBoolean(voidTag));

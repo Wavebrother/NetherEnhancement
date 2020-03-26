@@ -9,7 +9,6 @@ import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -47,10 +46,10 @@ public class QuartzOre extends OreBlock {
 			break;
 		}
 		Biomes.NETHER.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION,
-				Biome.createDecoratedFeature(Feature.ORE,
-						new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK,
-								this.getDefaultState(), frequency * 2),
-						Placement.MAGMA, new FrequencyConfig(frequency)));
+				Feature.ORE
+						.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK,
+								this.getDefaultState(), frequency * 2))
+						.withPlacement(Placement.MAGMA.configure(new FrequencyConfig(frequency))));
 	}
 
 	@Override

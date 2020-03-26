@@ -12,12 +12,12 @@ import wavebrother.netherenhancement.Reference;
 import wavebrother.netherenhancement.common.containers.InventoryFilterContainer;
 import wavebrother.netherenhancement.common.item.ItemVoid;
 
-public class InventoryFilterScreen extends ContainerScreen<InventoryFilterContainer>
-{
+@SuppressWarnings("deprecation")
+public class InventoryFilterScreen extends ContainerScreen<InventoryFilterContainer> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/gui/filter.png");
 
-	public InventoryFilterScreen(InventoryFilterContainer container, PlayerInventory playerInventory, ITextComponent title)
-	{
+	public InventoryFilterScreen(InventoryFilterContainer container, PlayerInventory playerInventory,
+			ITextComponent title) {
 		super(container, playerInventory, title);
 		xSize = 176;
 		ySize = 166;
@@ -25,34 +25,31 @@ public class InventoryFilterScreen extends ContainerScreen<InventoryFilterContai
 	}
 
 	@Override
-	public void render(int mouseX, int mouseY, float partialTicks)
-	{
+	public void render(int mouseX, int mouseY, float partialTicks) {
 		renderBackground();
 		super.render(mouseX, mouseY, partialTicks);
-		for(Widget widget: buttons)
+		for (Widget widget : buttons)
 			widget.render(mouseX, mouseY, partialTicks);
 		renderHoveredToolTip(mouseX, mouseY);
 	}
 
 	@Override
-	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
-	{
+	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color4f(1F, 1F, 1F, 1F);
 		minecraft.getTextureManager().bindTexture(TEXTURE);
 		blit(guiLeft, guiTop, 0, 0, xSize, ySize);
 
-		for (ItemVoid.FilterSlot slot : container.filterSlots)
-		{
+		for (ItemVoid.FilterSlot slot : container.filterSlots) {
 			blit(guiLeft + slot.x - 1, guiTop + slot.y - 1, 177, 0, 18, 18);
 		}
-		
+
 	}
 
 	@Override
-	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
-	{
+	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 		GlStateManager.color4f(1F, 1F, 1F, 1F);
 		font.drawString(getTitle().getFormattedText(), 8, 6, 4210752);
-		font.drawString(Minecraft.getInstance().player.inventory.getDisplayName().getFormattedText() + " Filter", 8, 72, 4210752);
+		font.drawString(Minecraft.getInstance().player.inventory.getDisplayName().getFormattedText() + " Filter", 8, 72,
+				4210752);
 	}
-} 
+}
