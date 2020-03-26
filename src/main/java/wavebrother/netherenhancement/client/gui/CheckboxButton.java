@@ -5,8 +5,8 @@ import net.minecraft.util.ResourceLocation;
 import wavebrother.netherenhancement.Reference;
 
 public class CheckboxButton extends AbstractButton {
-	   private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/gui/checkbox.png");
-	   boolean isPressed;
+	private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/gui/checkbox.png");
+	boolean isPressed;
 
 	public CheckboxButton(int xIn, int yIn, int widthIn, int heightIn, String msg, boolean isPressed) {
 		super(xIn, yIn, widthIn, heightIn, msg);
@@ -14,15 +14,15 @@ public class CheckboxButton extends AbstractButton {
 		// TODO Auto-generated constructor stub
 	}
 
-	   public void onPress() {
-	      this.isPressed = !this.isPressed;
-	   }
+	public void onPress() {
+		this.isPressed = !this.isPressed;
+	}
 
-	   public boolean isPressed() {
-	      return this.isPressed;
-	   }
+	public boolean isPressed() {
+		return this.isPressed;
+	}
 
-	   public void renderButton(int p_renderButton_1_, int p_renderButton_2_, float p_renderButton_3_) {
+	public void renderButton(int p_renderButton_1_, int p_renderButton_2_, float p_renderButton_3_) {
 //	      Minecraft minecraft = Minecraft.getInstance();
 //	      minecraft.getTextureManager().bindTexture(texture);
 //	      GlStateManager.enableDepthTest();
@@ -35,5 +35,5 @@ public class CheckboxButton extends AbstractButton {
 //	      this.renderBg(minecraft, p_renderButton_1_, p_renderButton_2_);
 //	      int i = 14737632;
 //	      this.drawString(fontrenderer, this.getMessage(), this.x + 24, this.y + (this.height - 8) / 2, 14737632 | MathHelper.ceil(this.alpha * 255.0F) << 24);
-	   }
+	}
 }

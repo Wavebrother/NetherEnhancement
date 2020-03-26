@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" b ",
+		"bsb",
+		" b "
+	],
+	"key": {
+		"b": [
+			{
+				"item": "minecraft:chiseled_quartz_block"
+			},
+			{
+				"item": "minecraft:quartz_block"
+			},
+			{
+				"item": "minecraft:quartz_pillar"
+			}
+		],
+		"s": {
+			"item": "minecraft:lava_bucket"
+		}
+	},
+	"result": {
+		"item": "netherenhancement:item_quartz_item_void"
+	}
+}
