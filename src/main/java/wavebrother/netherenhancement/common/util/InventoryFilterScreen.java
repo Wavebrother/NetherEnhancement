@@ -5,7 +5,6 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.widget.Widget;
-import net.minecraft.client.gui.widget.button.CheckboxButton;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -54,6 +53,6 @@ public class InventoryFilterScreen extends ContainerScreen<InventoryFilterContai
 	{
 		GlStateManager.color4f(1F, 1F, 1F, 1F);
 		font.drawString(getTitle().getFormattedText(), 8, 6, 4210752);
-		font.drawString(Minecraft.getInstance().player.inventory.getDisplayName().getFormattedText(), 8, 72, 4210752);
+		font.drawString(Minecraft.getInstance().player.inventory.getDisplayName().getFormattedText() + " Filter", 8, 72, 4210752);
 	}
 } 

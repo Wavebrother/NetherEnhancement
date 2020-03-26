@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.button.CheckboxButton;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,6 +21,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -35,6 +35,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.network.NetworkHooks;
 import wavebrother.netherenhancement.NetherEnhancement;
 import wavebrother.netherenhancement.Reference;
+import wavebrother.netherenhancement.client.gui.CheckboxButton;
 import wavebrother.netherenhancement.common.blocks.QuartzPedestal;
 import wavebrother.netherenhancement.common.containers.InventoryFilterContainer;
 import wavebrother.netherenhancement.common.init.ModBlocks;
@@ -50,7 +51,7 @@ public class ItemVoid extends Item implements IQuartzItem, IItemFilter {
 	public static final String voidTag = "itemVoid";
 	public final QuartzTier tier;
 	
-	public final CheckboxButton autoDelete = new CheckboxButton(1,1,18,18,"Auto Delete",false);
+	public final CheckboxButton autoDelete = new CheckboxButton(1,1,18,18,"Void",false);
 
 	public ItemVoid(QuartzTier tier, String name) {
 		super(new Item.Properties().maxStackSize(1).group(NetherEnhancement.CREATIVE_TAB));
@@ -68,6 +69,15 @@ public class ItemVoid extends Item implements IQuartzItem, IItemFilter {
 		ItemStack item = playerIn.getHeldItem(handIn);
 		if (playerIn.isSneaking()) {
 
+		CompoundNBT NBT = item.getOrCreateTag();
+			NBT.putBoolean(voidTag, !NBT.getBoolean(voidTag));
+			if (NBT.getBoolean(voidTag)) {
+				playerIn.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.3F, 1);
+			} else {
+				playerIn.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.3F, -1);
+			}
+			return new ActionResult<ItemStack>(ActionResultType.SUCCESS, item);
+		} else {
 			if (!worldIn.isRemote) {
 				NetworkHooks.openGui((ServerPlayerEntity) playerIn, new INamedContainerProvider() {
 					@Override
@@ -84,18 +94,8 @@ public class ItemVoid extends Item implements IQuartzItem, IItemFilter {
 			}
 
 			return new ActionResult<>(ActionResultType.SUCCESS, item);
-
-//		CompoundNBT NBT = item.getOrCreateTag();
-//			NBT.putBoolean(voidTag, !NBT.getBoolean(voidTag));
-//			if (NBT.getBoolean(voidTag)) {
-//				playerIn.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.3F, 1);
-//			} else {
-//				playerIn.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 0.3F, -1);
-//			}
-//			return new ActionResult<ItemStack>(ActionResultType.SUCCESS, item);
-		} else
-			playerIn.openContainer(new VoidContainer());
-		return new ActionResult<ItemStack>(ActionResultType.PASS, item);
+//			playerIn.openContainer(new VoidContainer());
+		}
 	}
 
 	public static class FilterSlot {
