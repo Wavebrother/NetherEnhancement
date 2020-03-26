@@ -18,6 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import wavebrother.netherenhancement.common.init.ModBlocks;
 
 @Mod(value = Reference.MOD_ID)
 public class NetherEnhancement {
@@ -34,9 +35,6 @@ public class NetherEnhancement {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
-		// Register the setup method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-
 		Config.loadConfig(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve(Reference.MOD_ID + "-client.toml"));
 		Config.loadConfig(Config.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(Reference.MOD_ID + "-common.toml"));
 
@@ -48,6 +46,9 @@ public class NetherEnhancement {
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
+		LOGGER.debug("Begin EE oregen");
+		ModBlocks.empoweredQuartzOre.setupOregen();
+		ModBlocks.extremeQuartzOre.setupOregen();
 	}
 
 	/**

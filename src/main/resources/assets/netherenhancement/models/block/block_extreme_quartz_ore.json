@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "netherenhancement:block/extreme_quartz_ore"
+    }
+}

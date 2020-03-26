@@ -96,6 +96,8 @@
 	"block.netherenhancement.block_extreme_quartz_slab": "Extreme Quartz Slab",
 	"block.netherenhancement.block_empowered_quartz_stairs": "Empowered Quartz Stairs",
 	"block.netherenhancement.block_extreme_quartz_stairs": "Extreme Quartz Stairs",
+	"block.netherenhancement.block_empowered_quartz_ore": "Empowered Quartz Ore",
+	"block.netherenhancement.block_extreme_quartz_ore": "Extreme Quartz Ore",
 	"block.netherenhancement.block_quartz_pedestal":"Quartz Pedestal",
 	"tileentity.netherenhancement.tileentity_quartz_pedestal":"Quartz Pedestal",
 	

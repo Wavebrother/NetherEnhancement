@@ -3,7 +3,6 @@ package wavebrother.netherenhancement.common.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SoundType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import wavebrother.netherenhancement.NetherEnhancement;
@@ -13,7 +12,7 @@ public class QuartzSlab extends SlabBlock {
 
 	public final EnderBlockItem blockItem;
 	public QuartzSlab(QuartzTier tier, String name) {
-		super(Block.Properties.from(Blocks.IRON_BLOCK).sound(SoundType.ANVIL));
+		super(Block.Properties.from(Blocks.QUARTZ_SLAB));
 		setRegistryName(name);
 		blockItem = new EnderBlockItem();
 	}

@@ -43,16 +43,15 @@ public class Config {
 				.defineInRange("agitator_range", 4, 1, 128);
 		COMMON_BUILDER.pop();
 
-		COMMON_BUILDER.comment("Ender Armor Settings").push(CATEGORY_QUARTZ_ARMOR);
-		COMMON_BUILDER.comment("Attack Settings").push(CATEGORY_QUARTZ_ARMOR_ATTACK);
-		for (QuartzTier tier : QuartzTier.values()) {
-			QUARTZ_ARMOR_ATTACK_MINIMUM.put(tier, COMMON_BUILDER
-					.comment("Minimum number of pieces of " + tier
-							+ " armor to cause a attack teleport.\nSet to 5 to never cause a attack teleport.")
-					.defineInRange(tier.toString().toLowerCase(), tier.armorMaterial.DEFAULT_ATTACK_TP_MIN, 1, 5));
-		}
-		COMMON_BUILDER.pop();
-		COMMON_BUILDER.pop();
+//		COMMON_BUILDER.comment("Quartz Armor Settings").push(CATEGORY_QUARTZ_ARMOR);
+//		COMMON_BUILDER.comment("Attack Settings").push(CATEGORY_QUARTZ_ARMOR_ATTACK);
+//		for (QuartzTier tier : QuartzTier.values()) {
+//			QUARTZ_ARMOR_ATTACK_MINIMUM.put(tier, COMMON_BUILDER
+//					.comment("Minimum number of pieces of " + tier
+//							+ " armor to cause a attack teleport.\nSet to 5 to never cause a attack teleport.")
+//					.defineInRange(tier.toString().toLowerCase(), tier.armorMaterial.DEFAULT_ATTACK_TP_MIN, 1, 5));
+//		}
+//		COMMON_BUILDER.pop();
 
 		COMMON_CONFIG = COMMON_BUILDER.build();
 		CLIENT_CONFIG = CLIENT_BUILDER.build();
