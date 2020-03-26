@@ -91,6 +91,7 @@ public class Reference {
 		EMPOWEREDQUARTZPILLAR("block_empowered_quartz_pillar"), EXTREMEQUARTZPILLAR("block_extreme_quartz_pillar"),
 		EMPOWEREDQUARTZSLAB("block_empowered_quartz_slab"), EXTREMEQUARTZSLAB("block_extreme_quartz_slab"),
 		EMPOWEREDQUARTZSTAIRS("block_empowered_quartz_stairs"), EXTREMEQUARTZSTAIRS("block_extreme_quartz_stairs"),
+		EMPOWERED_QUARTZ_ORE("block_empowered_quartz_ore"), EXTREME_QUARTZ_ORE("block_extreme_quartz_ore"),
 		QUARTZPEDESTAL("block_quartz_pedestal");
 
 		private String registryName;

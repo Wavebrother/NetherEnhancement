@@ -5,11 +5,8 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.client.gui.ScreenManager;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +21,7 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.network.IContainerFactory;
 import wavebrother.netherenhancement.common.containers.InventoryFilterContainer;
 import wavebrother.netherenhancement.common.util.InventoryFilterScreen;
+import wavebrother.netherenhancement.common.init.ModBlocks;
 
 @Mod(value = Reference.MOD_ID)
 public class NetherEnhancement {
@@ -36,9 +34,6 @@ public class NetherEnhancement {
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
-
-		// Register the setup method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
 		Config.loadConfig(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve(Reference.MOD_ID + "-client.toml"));
 		Config.loadConfig(Config.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(Reference.MOD_ID + "-common.toml"));
@@ -53,6 +48,8 @@ public class NetherEnhancement {
 
 	private void setup(final FMLCommonSetupEvent event) {
 		ScreenManager.registerFactory(InventoryFilterContainer.TYPE, InventoryFilterScreen::new);
+		ModBlocks.empoweredQuartzOre.setupOregen();
+		ModBlocks.extremeQuartzOre.setupOregen();
 	}
 
 	private void registerContainers(RegistryEvent.Register<ContainerType<?>> event)
