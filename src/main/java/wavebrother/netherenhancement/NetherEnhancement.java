@@ -5,8 +5,11 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -20,8 +23,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.network.IContainerFactory;
 import wavebrother.netherenhancement.common.containers.InventoryFilterContainer;
-import wavebrother.netherenhancement.common.util.InventoryFilterScreen;
 import wavebrother.netherenhancement.common.init.ModBlocks;
+import wavebrother.netherenhancement.common.util.InventoryFilterScreen;
 
 @Mod(value = Reference.MOD_ID)
 public class NetherEnhancement {
@@ -30,6 +33,7 @@ public class NetherEnhancement {
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	public NetherEnhancement() {
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
